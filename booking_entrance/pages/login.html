@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>实验室与设备管理预约系统</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            background-image: url('images/Sierra.jpg');
+            background-repeat: no-repeat;
+            background-position: 0% 0%;
+            background-size: cover;
+            <!-- background-color: #22C3AA; -->
+        }
+    </style>
+    <script type="text/javascript">
+
+        /**
+         * 注册
+         */
+        function regist() {
+
+            window.location.href = 'http://127.0.0.1:8081/register';
+        }
+    </script>
+</head>
+<body>
+    <div style="margin:0;margin-top:30px;margin-left:90px">
+        <h1 style="margin:0"><font color="green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实验室与设备管理预约系统</font></h1>
+        <p style="margin-left:8px;margin:0;"><font color="green" size="4">Laboratory &nbsp; and &nbsp; Equipment &nbsp; Management &nbsp; Reservation &nbsp; System</font></p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+        <form action="http://127.0.0.1:8081/process_get" method="GET" style="margin-left:800px">
+            <p><font size="4" color="#2F4F4F"><b>用户登录</b></p><font>
+                <p>
+                    <font color="#2F4F4F">用户名:</font>
+                    <input type="text" class=txt size="12" maxlength="20" name="username" />
+                </p>
+                <p>
+                    <font color="#2F4F4F">密&nbsp;&nbsp;&nbsp;&nbsp;码:</font>
+                    <input type="password" class=txt size="12" maxlength="20" name="password" />
+                </p>
+                <p>
+                    <font color="#2F4F4F">身&nbsp;&nbsp;&nbsp;&nbsp;份：</font>
+                    <select name="character" style="color:#2F4F4F">
+                        <option value="student">学生</option>
+                        <option value="teacher">教师</option>
+                        <option value="admin">管理员</option>
+                    </select>
+                </p>
+                <div style="align:right;margin-left:50px;">
+                    <!-- 此处应该有身份选择 -->
+                    <input type="submit" name="submit" id="login" value="登录">
+                    <input id="register" href="register.html" type="button" name="register" value="注册" onclick="regist()" />
+                </div>
+        </form>
+    </center>
+</body>
+</html>

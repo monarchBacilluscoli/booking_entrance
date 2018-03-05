@@ -1,0 +1,15 @@
+{
+  "name": "entrance",
+  "version": "0.0.0",
+  "description": "MyLab",
+  "main": "app.js",
+  "author": "刘永峰",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  }
+}
