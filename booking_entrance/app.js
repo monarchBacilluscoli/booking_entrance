@@ -53,7 +53,7 @@ app.get('/process_get', function (req, res) {
                 console.log('[SELECT ERROR] - ', err.message);
                 // res.send("check your username and password and try it again");
                 // TODO: 模板
-                var warningString = 'check your pin number/password and try it again'; // 登陆提示
+                var warningString = 'check your PIN number/password and try it again'; // 登陆提示
                 res.render('verification', { s: warningString });
                 return;
             } else {
@@ -61,7 +61,7 @@ app.get('/process_get', function (req, res) {
                 if (result[0] == undefined) {
                     // res.send("check your pin number and try it again");
                     // TODO: 模板
-                    var warningString = 'Check your pin number and try it again';
+                    var warningString = 'Check your PIN number and try it again';
                     res.render('verification', { s: warningString });
                     return
                 } else if (req.query.password != result[0].password) {

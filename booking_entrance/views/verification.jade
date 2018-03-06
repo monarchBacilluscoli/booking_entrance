@@ -18,22 +18,22 @@ html
   body(bgcolor='#F0F8FF')
     #div1(style='text-align: center;')
       img(src='images/ccc2018.png', width='60%', height='100%')
-      div(style='text-align: center;margin-top:50px;')
-        h1(style='text-align: center;margin:0;')
+      div(style='margin-top:50px;')
+        h1(style='margin:0;')
           font(color='#2F4F4F', size='5') CCC2018酒店预订入口身份验证
-        p(style='text-align: center;margin:0;')
+        p(style='margin:0;')
           font(color='#2F4F4F', size='3') (请使用CCC2018投稿系统注册信息登录)
         #div2
           form(action='process_get', method='GET', style='text-align: center;')
                 div
-                  p(style='margin-top:30px')
+                  p(style='text-align: center;margin-top:30px')
                     font(color='#000000')
-                      b 请输入您的 PIN :
-                    input.txt(type='text', size='18', maxlength='10', name='username')
+                      b 请输入您的 PIN:
+                    input.txt(type='text', size='15', maxlength='10', name='username')
                   p
                     font(color='#000000')
                       b 请输入您的密码:
-                    input.txt(type='password', size='18', maxlength='10', name='password')
+                    input.txt(type='password', size='15', maxlength='10', name='password')
                     th
                 font(color='#DC143C', size='3') #{s}
                 div(style='text-align: center;margin-top:10px')
