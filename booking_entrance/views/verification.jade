@@ -11,28 +11,89 @@ html
       background-position: 50% 0%;
       background-size: 60% 150%;
       }
-    script(type='text/javascript').
-      
-  body(bgcolor='#F0F8FF')
-    #div1(style='text-align: center;')
+      #canvas {
+      cursor: pointer;
+      }
+      .code {
+      background-image: url('images/ccc2018.png');
+      /* width: 80;
+      height: 5; */
+      font-family: Arial;
+      /* font-style:italic; */
+      color: black;
+      font-size: 25px;
+      border: 0;
+      padding: 2px 3px;
+      letter-spacing: 3px;
+      font-weight: bolder;
+      float: center;
+      cursor: pointer;
+      line-height: 25px;
+      text-align: center;
+      vertical-align: middle;
+      }
+    script(type='text/javascript', language='javascript').
+      var code;
+      function createCode() {
+      code = "";
+      var codeLength = 4; //验证码的长度
+      var checkCode = document.getElementById("checkCode");
+      var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+      for (var i = 0; i < codeLength; i++) {
+      var charNum = Math.floor(Math.random() * 52);
+      code += codeChars[charNum];
+      }
+      if (checkCode) {
+      checkCode.className = "code";
+      checkCode.innerHTML = code;
+      }
+      }
+      function validateCode() {
+      var inputCode = document.getElementById("inputCode").value;
+      if (inputCode.length <= 0) {
+      alert("请输入验证码！");
+      createCode();
+      return false;
+      }
+      else if (inputCode.toUpperCase() != code.toUpperCase()) {
+      alert("验证码输入错误！");
+      createCode();
+      return false;
+      }
+      else if (inputCode.toUpperCase() == code.toUpperCase()) {
+      return true;
+      }
+      }
+  body(bgcolor='#F0F8FF', onload='createCode()')
+    #div1(style='text-align: center; ')
       img(src='images/ccc2018.png', width='60%', height='100%')
       div(style='margin-top:50px;')
         h1(style='margin:0;')
           font(color='#2F4F4F', size='5') CCC2018酒店预订入口身份验证
         p(style='margin:0;')
           font(color='#2F4F4F', size='3') (请使用CCC2018投稿系统注册信息登录)
-        #div2
-          form(action='process_get', method='GET', style='text-align: center;')
-                div
-                  p(style='text-align: center;margin-top:30px')
-                    font(color='#000000')
-                      b 请输入您的 PIN:
-                    input.txt(type='text', size='15', maxlength='10', name='username')
-                  p
-                    font(color='#000000')
-                      b 请输入您的密码:
-                    input.txt(type='password', size='15', maxlength='10', name='password')
-                    th
-                font(color='#DC143C', size='3') #{s}
-                div(style='text-align: center;margin-top:10px')
-                  input#login(type='submit', name='submit', value='登录')
+        form(action='process_post', method='POST', onsubmit='return validateCode()')
+          div(style='text-align: center;margin-top:30px')
+            font(color='#000000' size='3')
+               请输入您的 PIN:
+            div
+              input.txt(type='text', size='20', maxlength='10', name='username')
+          div(style='text-align: center;margin-top:10px')
+            font(color='#000000' size='3')
+               请输入您的密码:
+            div
+              input.txt(type='password', size='20', maxlength='10', name='password')
+          div(style='vertical-align:bottom;text-align:center;margin-top:10px;')
+            font(color='#000000' size='3')
+               请输入验证码:
+            div(style='text-align:center;')
+              input#inputCode(type='text')
+              table(style='margin-top:5px', align='center', border='0')
+                td
+                  #checkCode.code(onclick='createCode()')
+            th
+            font(color='#DC143C', size='3') #{s}
+          div(style='text-align: center;margin-top:10px')
+            input#submit(type='submit', value='登录', style=' width:70px; height:30px; background-color:#2F4F4F;font-size:15px; border:2px solid #2F4F4F; color: #FFFFFF;text-align:center')

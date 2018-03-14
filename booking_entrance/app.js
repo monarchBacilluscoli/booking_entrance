@@ -1,16 +1,11 @@
-var express = require('express');   // express框架
-var mysql = require('mysql');       // MySQL数据库
+var express = require('express');       // express框架
+var mysql = require('mysql');           // MySQL数据库
+var bodyParser = require('body-parser');// 解析URL 
 var app = express();
-app.set('view engine', 'jade');     // Jade模板引擎
-app.set('views', './views');         // 模板路径
-// 数据库连接参数
-//var connectParams = {
-//    'hostname': 'localhost',
-//    'user': 'root',
-//    'password': 'l1994321',
-//    'port': '3306',
-//    'database': 'mylab'
-//}
+app.set('view engine', 'jade');         // Jade模板引擎
+app.set('views', './views');            // 模板路径
+
+var IS_TEST = true;
 
 //连接数据库
 var connection = mysql.createConnection({   // 注意使用的时候这个信息要改成数据库所设定的信息。
@@ -39,16 +34,19 @@ app.get('/', function (req, res) {
     return;
 })
 
+// 创建 application/x-www-form-urlencoded 编码解析
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 // 登陆表单请求
-app.get('/process_get', function (req, res) {
+app.post('/process_post', urlencodedParser, function (req, res) {
     // 输出 JSON 格式
     var response = {
-        "username ": req.query.username,
-        "password": req.query.password,
+        "username ": req.body.username,
+        "password": req.body.password,
     };
     // 信息核对成功则返回true, 否则返回false
     connection.query('SELECT * FROM student WHERE id= ?',
-        [req.query.username], function (err, result) {
+        [req.body.username], function (err, result) {
             if (err) {
                 console.log('[SELECT ERROR] - ', err.message);
                 // res.send("check your username and password and try it again");
@@ -64,8 +62,8 @@ app.get('/process_get', function (req, res) {
                     var warningString = 'Check your PIN number and try it again';
                     res.render('verification', { s: warningString });
                     return
-                } else if (req.query.password != result[0].password) {
-                    res.send("Check your password and try it again");
+                } else if (req.body.password != result[0].password) {
+                    // res.send("Check your password and try it again");
                     // TODO: 模板
                     var warningString = 'Check your password and try it again';
                     res.render('verification', { s: warningString });
@@ -75,7 +73,11 @@ app.get('/process_get', function (req, res) {
                     console.log('--------------------------SELECT----------------------------');
                     console.log(result);
                     console.log('------------------------------------------------------------\n\n');
-                    res.redirect('https://m.ctrip.com/webapp/meeting/b2croom/CCC/index');   // 进入携程预订
+                    if(IS_TEST){
+                        res.send("Ask the programmer to set off TEST toggle!");
+                    }else{
+                        res.redirect('https://m.ctrip.com/webapp/meeting/b2croom/CCC/index');   // 进入携程预订
+                    }
                     return
                 }
             }
