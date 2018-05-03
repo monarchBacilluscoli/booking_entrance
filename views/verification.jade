@@ -74,15 +74,15 @@ html
           font(color='#2F4F4F', size='5') CCC2018酒店预订入口身份验证
         p(style='margin:0;')
           font(color='#2F4F4F', size='3') (请使用CCC2018投稿系统注册信息登录)
-        form(action='process_post', method='POST', onsubmit='return validateCode()')
+        form(action='login_post', method='POST', onsubmit='return validateCode()')
           div(style='text-align: center;margin-top:30px')
-            label(for="username") 请输入您的 PIN: 
+            label(for="pin") 请输入您的 PIN: 
             div
-              input.txt(type='text', size='20', maxlength='10', name='username')
+              input.txt(type='text', size='20', maxlength='10', name='pin')
           div(style='text-align: center;margin-top:10px')
-            label(for="password") 请输入您的密码: 
+            label(for="name") 请输入您的姓名: 
             div
-              input.txt(type='password', size='20', maxlength='20', name='password')
+              input.txt(type='text', size='20', maxlength='20', name='name')
           div(style='vertical-align:bottom;text-align:center;margin-top:10px;')
             label(for="Vcode") 请输入验证码: 
             div(style='text-align:center;')
