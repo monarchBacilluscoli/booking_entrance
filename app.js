@@ -10,7 +10,7 @@ app.set('view engine', 'jade');         // Jade模板引擎
 app.set('views', './views');            // 模板路径
 app.set('pages', './pages');            // 托管网页文件
 
-// 创建 application/x-www-form-urlencoded 编码解析
+// 创建 application/x-www-form-urlencoded 编码解析，必须使用这个方可对POST进行解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // 托管的静态文件所在路径
@@ -122,95 +122,65 @@ app.post('/login_post', urlencodedParser, function (req, res) {
         "pin": req.body.pin,
         "name": req.body.name,
     };
-    connection.query('SELECT * FROM login WHERE pin= ?',
-        [req.body.pin], function (err, result) {   // 使用PIN进行选择只可能有一个返回结果
-            if (err) {
-                // 纯粹错误
-                console.log('[SELECT ERROR] - ', err.message);
-                console.log("Error time: " + new Date(Date.now()));
+    connection.query('SELECT * FROM login WHERE pin= ?', [req.body.pin], function (err, result) {   // 使用PIN进行选择只可能有一个返回结果
+        if (err) {
+            // 纯粹错误
+            console.log('[SELECT ERROR] - ', err.message);
+            console.log("Error time: " + new Date(Date.now()));
+            console.log("IP: " + getClientIp(req));
+            var warningString = 'Wrong PIN, please try it again or register in TCCT'; // 登陆提示
+            res.render('verification', { s: warningString });
+            return;
+        } else {
+            if (result[0] == undefined) {
+                // PIN不存在
+                console.log('------------------------hold(PIN)--------------------------');
+                console.log("WRONG PIN: " + req.body.pin);
+                console.log("Hold time: " + new Date(Date.now()));  // 输出时间
+                console.log("Clien info: " + JSON.stringify(req.headers))
                 console.log("IP: " + getClientIp(req));
-                var warningString = 'Wrong PIN, please try it again or register in TCCT'; // 登陆提示
+                console.log('------------------------------------------------------------\n\n');
+                var warningString = 'Check your PIN and try it again';
+                res.render('verification', { s: warningString });
+                return
+            } else if (req.body.name != result[0].username) {
+                // 密码错误
+                console.log('------------------------hold(NAME)--------------------------');
+                console.log("PIN: " + result[0].pin);
+                console.log("wrong name: " + req.body.username);
+                console.log("Hold time: " + new Date(Date.now()));  // 输出时间
+                console.log("Clien info: " + JSON.stringify(req.headers));
+                console.log("IP: " + getClientIp(req));
+                console.log('------------------------------------------------------------\n\n');
+                var warningString = 'Check your name and try it again';
                 res.render('verification', { s: warningString });
                 return;
             } else {
-                if (result[0] == undefined) {
-                    // PIN不存在
-                    console.log('------------------------hold(PIN)--------------------------');
-                    console.log("WRONG PIN: " + req.body.pin);
-                    console.log("Hold time: " + new Date(Date.now()));  // 输出时间
-                    console.log("Clien info: " + JSON.stringify(req.headers))
-                    console.log("IP: " + getClientIp(req));
-                    console.log('------------------------------------------------------------\n\n');
-                    var warningString = 'Check your PIN and try it again';
-                    res.render('verification', { s: warningString });
-                    return
-                } else if (req.body.name != result[0].username) {
-                    // 密码错误
-                    console.log('------------------------hold(NAME)--------------------------');
-                    console.log("PIN: " + result[0].pin);
-                    console.log("wrong name: " + req.body.username);
-                    console.log("Hold time: " + new Date(Date.now()));  // 输出时间
-                    console.log("Clien info: " + JSON.stringify(req.headers));
-                    console.log("IP: " + getClientIp(req));
-                    console.log('------------------------------------------------------------\n\n');
-                    var warningString = 'Check your name and try it again';
-                    res.render('verification', { s: warningString });
-                    return;
-                } else {
-                    // 登陆成功
-                    console.log('--------------------------Login----------------------------');
-                    console.log(result);
-                    console.log("Login time: " + new Date(Date.now()));  // 输出时间
-                    console.log("Clien info: " + JSON.stringify(req.headers));
-                    console.log("IP: " + getClientIp(req));
-                    console.log('------------------------------------------------------------\n\n');
-                    // 重新生成session
-                    req.session.regenerate(function (err) {
-                        if (err) {
-                            var warningString = 'System Error: @regenerate session. </br>Please contact administor.';
-                            res.render('verification', { s: warningString });
-                            return;
-                        }
-                        else {
-                            req.session.loginUser = req.body.pin;
-                            req.session.loginName = req.body.name;// 登陆成功，设置session
-                            //console.log(req.session.loginName);
-                            res.sendFile(__dirname + '/pages/choice.html');
-                            return;
-                        }
-                    })
-                }
+                // 登陆成功
+                console.log('--------------------------Login----------------------------');
+                console.log(result);
+                console.log("Login time: " + new Date(Date.now()));  // 输出时间
+                console.log("Clien info: " + JSON.stringify(req.headers));
+                console.log("IP: " + getClientIp(req));
+                console.log('------------------------------------------------------------\n\n');
+                // 重新生成session
+                req.session.regenerate(function (err) {
+                    if (err) {
+                        var warningString = 'System Error: @regenerate session. </br>Please contact administor.';
+                        res.render('verification', { s: warningString });
+                        return;
+                    }
+                    else {
+                        req.session.loginUser = req.body.pin;
+                        req.session.loginName = req.body.name;// 登陆成功，设置session
+                        //console.log(req.session.loginName);
+                        res.sendFile(__dirname + '/pages/choice.html');
+                        return;
+                    }
+                })
             }
-        })
-})
-
-// 选择进入东湖
-app.get('/donghu_get', function (req, res) {
-    //var sess = req.session;
-    var warningString = checkSession(req.session);
-    if (warningString) {    // 如果存在sessionCheck不通过（直接URL/页面停留过长），那么将存在提示字符串，并退回登陆页面
-        res.render('verification', { s: warningString })
-        return;
-    } else {
-        // TODO: 设置传递值
-        res.render('donghu_reservation.jade');
-    }
-    // if (sess.loginUser) {
-    //     // 存在用户且页面停留时间较短
-    //     if (sess.cookie.maxAge > 0) {
-    //         console.log(loginUser);
-    //         res.render('donghu_reservation.jade');  // 进入东湖预定页面    
-    //     }
-    //     else {
-    //         // 页面停留时间过长
-    //         var warningString = 'The page stay is too long, please log in again';
-    //         res.render('verification', { s: warningString });
-    //     }
-    // } else {
-    //     // 阻止通过URL直接登陆
-    //     var warningString = 'Please log in.';
-    //     res.render('verification', { s: warningString });
-    // }
+        }
+    })
 })
 
 // 选择进入携程
@@ -224,6 +194,43 @@ app.get('/xiecheng_get', function (req, res) {
     }
 })
 
+// 选择进入东湖
+app.get('/donghu_get', function (req, res) {
+    //var sess = req.session;
+    var warningString = checkSession(req.session);
+    if (warningString) {    // 如果存在sessionCheck不通过（直接URL/页面停留过长），那么将存在提示字符串，并退回登陆页面
+        res.render('verification', { s: warningString })
+        return;
+    } else {
+        // 获取数据：先获取房间信息
+        connection.query('SELECT * FROM donghu WHERE sn=1', function (err_r, result_r) {
+            if (err) {
+                // 错误处理逻辑（房间应该不会出错）
+                return;
+            } else {
+                // 获取数据：再获取个人信息
+                connection.query('SELECT * FROM login WHERE pin = ?', [req.session.loginUser], function (err_u, result_u) {
+                    if (err) {
+                        // 错误处理逻辑（既然注册过那么应该也不会出错）
+                        return;
+                    } else {
+                        // 渲染网页并显示
+                        res.render('verification', { 
+                            // 用户信息
+                            name: result_u[0].username,                         phone: result_u[0].phone, email:result_u[0].email,
+                            // 房间信息
+                            tingtao2_biao: result_r[0].tingtao2_biao_current,   tingtao2_dan:result_r[0].tingtao2_dan_current, 
+                            nanshanyi_biao:result_r[0].nanshanyi_biao_current,  nanshanyi_dan:result_r[0].nanshanyi_dan_current,
+                            baihua2_biao:result_r[0].baihua2_biao_current
+                        });
+                        return;
+                    }
+                })
+            }
+        })
+    }
+})
+
 // TODO: 东湖预定请求
 app.post('/donghu_reservation_post', urlencodedParser, function (req, res) {
     var warningString = checkSession(req.session);
@@ -232,30 +239,18 @@ app.post('/donghu_reservation_post', urlencodedParser, function (req, res) {
         return;
     } else {
         // TODO: 执行逻辑: 数据写入数据库，回复邮件，页面提醒
+        // 添加订单
+        // connection.query('INSERT orders (pin, chekin, checkout, tingtao2_biao,tingtao2_dan,nanshanyi_biao,nanshanyi_dan,baihua2_biao, deposit) values(?,?,?,?,?,?,?,?,?)',[,,,,,,,,])
     }
-    // var sess = req.session;
-    // if (sess.loginUser) {
-    //     // 存在用户且页面停留时间较短
-    //     if (sess.cookie.maxAge > 0) {
-    //         console.log(loginUser);
-    //         // TODO: 执行逻辑: 组织数据，渲染页面
-    //     }
-    //     else {
-    //         // 页面停留时间过长
-    //         var warningString = 'The page stay is too long, please log in again';
-    //         res.render('verification', { s: warningString });
-    //     }
-    // } else {
-    //     // 阻止通过URL直接登陆
-    //     var warningString = 'Please log in.';
-    //     res.render('verification', { s: warningString });
-    // }
+
 })
 
 // TODO: 东湖订房表单请求处理, 此处需要session
 app.post('/donghu_book_post', function (req, res) {
     // TODO: 数据
-    var response = {
+    // 订单数据
+    var order_res = {
+        "pin": req.query.pin,
         "tingtao2_biao": req.query.tingtao2_biao,
         "tingtao2_dan": req.query.tingtao2_dan,
         "nanshanyi_biao": req.query.nanshanyi_biao,
@@ -263,9 +258,15 @@ app.post('/donghu_book_post', function (req, res) {
         "baihua2_biao": req.query.baihua2_biao,
         "baihua2_dan": req.query.baihua2_dan
     };
+    var user_res={
+        "pin": req.query.pin,
+        "name": req.query.name,
+        "phone": req.query.phone,
+        "email": req.query.email
+    };
     // TODO: 修改数据库数据
     // TODO: 首先按照房间（判断可以前台写，但不知道是否可行或者安全）
-    connection.query('UPDATE room SET current_amount=current-? WHRER name=tingtao2_biao', [req.query.tingtao2_biao], function (err, result) {
+    connection.query('UPDATE room SET tingtao2_biao_current=tingtao2_biao_current-?,tingtao2_dan_current=tingtao2_dan_current-?,nanshanyi_biao_current=nanshanyi_biao_current-?,nanshanyi_dan_current=nanshanyi_dan_current- WHRER sn=1', [req.query.tingtao2_biao,req.query.tingtao2_dan,req.query.nanshanyi_biao,req.query.nanshanyi_dan,req.query.baihua2_biao], function (err, result) {
 
     })
     // TODO: 按照用户
@@ -291,8 +292,8 @@ app.get('/logout', function (req, res, next) {
 
 // 设置监听端口为8081
 var server = app.listen(8081, function () {
-    var host = server.address().address
-    var port = server.address().port
+    var host = server.address().address;
+    var port = server.address().port;
     console.log("Successfully connected, URL is http://%s:%s", host, port)
 })
 
