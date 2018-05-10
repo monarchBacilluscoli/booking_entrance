@@ -4,79 +4,23 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />    
-    <meta name="format-detection" content="telephone=no" />   
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
     <title>东湖酒店预订</title>
     <link rel="stylesheet" type="text/css" href="css/global.css" />
     <!-- <link rel="stylesheet" href="css/smoothness/jquery.ui.css" type="text/css" /> -->
     <link rel="stylesheet" type="text/css" href="css/css.css" />
     <link rel="stylesheet" type="text/css" href="css/count_style.css" />
+
+    <!–[if lt IE 9]>
+    <script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
+    <![endif]–>
 </head>
 <style>
-    table,
-    th,
-    td {
-        border: 2px solid grey;
-        border-collapse: collapse;
-        padding: 6px;
-    }
-
-    #tr1 {
-        background-color: #87CEFA;
-        font-size: 16px;
-    }
-
-    #tt {
-        background-color: #87CEFA;
-        color: #000;
-        font-weight: 900;
-        /* font-size: 10px; */
-    }
-
-    #ns {
-        background-color: #87CEFA;
-        color: #000;
-        font-weight: 900;
-    }
-
-    #bh {
-        background-color: #87CEFA;
-        color: #000;
-        font-weight: 900;
-    }
-
-    #ttb {
-        background-color: #DCDCDC;
-        color: #000;
-        font-weight: 900;
-    }
-
-    #ttd {
-        background-color: #DCDCDC;
-        color: #000;
-        font-weight: 900;
-    }
-
-    #nsb {
-        background-color: #DCDCDC;
-        color: #000;
-        font-weight: 900;
-    }
-
-    #nsd {
-        background-color: #DCDCDC;
-        color: #000;
-        font-weight: 900;
-    }
-
-    #bhb {
-        background-color: #DCDCDC;
-        color: #000;
-        font-weight: 900;
-    }
+   
 </style>
 
-<body class="ticketBody">
+<body onload="start()">
     <!--中间-->
     <div class="webIndex">
         
@@ -85,42 +29,85 @@
                 <!-- <h3 class="search-head">东湖酒店预订(CCC2018)</h3> -->
                 <img height="58%" width=100% src="images/2D0r0r000000h08392FC5.jpg" />
                 <form method="get" target="hideIframe">
-                    <div class="sea-div">
+                    <table class="table1" frame="border" cellpadding="15" cellspacing="0" align="center" rules="all" width=auto height=auto
+                    white-space="nowrap" style="margin:auto;">
+                        <tr>
+                        <div class="sea-div">
+                        <td>
                         <label class="info_input">姓名：</label>
-                        <div class="input"><input type="text" placeholder="请输入姓名(必填)" class="hotel-name" id="name" required="required"
-                        /></div>
-                    </div>
-                    <div class="sea-div">
+                        </td>
+                        <td>
+                        <input type="text" placeholder="请输入姓名(必填)" class="hotel-name" id="name" required="required" />
+                        </td>
+                        <td rowspan="6" width="30em"></td>
+                        </div>
+                        </tr>
+                        <tr height="20em"></tr>
+                        <tr>   
+                        <div class="sea-div">
+                        <td>
                         <label class="info_input">手机号：</label>
+                        </td>
+                        <td>
                         <input type="tel" placeholder="请输入手机号(必填)" class="hotel-name" id="phonenum" required="required"
                         />
+                        </td>
                     </div>
+                    </tr>
+                    <tr height="25em"></tr>
+                    <tr>
                     <div class="sea-div">
+                        <td>
                         <label class="info_input">邮箱：</label>
+                        </td>
+                        <td>
                         <input type="email" placeholder="请输入邮箱(必填)" class="hotel-name" id="email" required="required"
                         />
+                        </td>
                     </div>
+                    </tr>
+                    <tr height="20em"></tr>
                     <!-- <h3 class="search-title">住宿预订</h3> -->
+                    <tr>
                     <div class="sea-div">
+                        <td>
                         <label class="search-lab">入住日期：</label>
-                        <input type="date"  id="startDate" value="2018-07-23" min="2018-07-23" max="2018-07-28" />
-                        <label class="date_check" id="date_tip"></label>
-                    </div>
+                        </td>
+                        <td>
+                        <input type="date"  class="hotel-name"id="startDate" value="2018-07-23" min="2018-07-23" max="2018-07-28" />
+                        </td>
+                        
+                        </div>
+                    </tr>
+                    <tr height="20em"></tr>
+                    <tr>
                     <div class="sea-div">
+                        <td>
                         <label class="search-lab">离店日期：</label>
-                        <input type="date"  id="endDate" value="2018-07-24" min="2018-07-23" max="2018-07-28" />
+                        </td>
+                        <td>
+                        <input type="date"  class="hotel-name"id="endDate" value="2018-07-24" min="2018-07-23" max="2018-07-28" />
+                        </td>
                     </div>
+                    </tr>
+                    </table>
+                    <label class="date_check" id="date_tip"></label>
+                    <br/>
+                    <br/>
                     <!-- <input  type="button"  class="search-but" value="Show days" onclick="getdate()"> -->
                     <!-- <p id="showdate"></p> -->
 
 
-                    <p class="room_info">
+                    <!-- <p class="room_info">
                         <label  id="room_info" style="font-size: 20px; font-weight: 900">东湖宾馆房间信息</label>
-                    </p>
+                    </p> -->
                     <div class="room_table">
-                        <table  frame="border" cellpadding="15" cellspacing="0" align="center" rules="all" width=100% height=auto
-                            white-space="nowrap">
-                            <tr align="center" id="tr1">
+                        <label  class="room_info"  style="margin:auto;font-size: 1.6em; font-weight: 900">东湖宾馆房间信息</label>
+                        <br/>
+                        <br/>
+                        <table  class="table2" frame="border" cellpadding="15" cellspacing="0" align="center" rules="all" width=auto height=auto
+                            white-space="nowrap" style="margin:auto;">
+                            <tr align="center" class="tr1">
                                 <th>区域</th>
                                 <th>房型</th>
                                 <th>价格 </th>
@@ -133,12 +120,12 @@
                                 <!-- <th>是否预订</th> -->
                             </tr>
                             <tr align="center">
-                                <td rowspan="2" id="tt">听涛2号</td>
-                                <td id="ttb">标间</td>
-                                <td id="ttb">400元</td>
+                                <td rowspan="2" class="tt">听涛2号</td>
+                                <td class="ttb">标间</td>
+                                <td class="ttb">400元</td>
                                 <!-- <td>0</td> -->
 
-                                <td id="ttb">
+                                <td class="ttb">
                                     <ul class="btn-numbox">
                                         <!-- <li><span class="number">数量</span></li> -->
                                         <li>
@@ -159,17 +146,16 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td id="deposit" rowspan="6" style="color:#ff5400;font-size:25px">
-                                    <!-- <br/>
-                              <span id="deposit_tip"></span> -->
+                                <td  class="deposit_td"rowspan="6" ><input  type="text" id="deposit" value="0" readonly="readonly"  style="color:#ff5400;font-size:1.8em; width: 5em; height: auto;margin:auto;text-align: center"/>
                                 </td>
-                                <!-- <td id="money" rowspan="6"><input type="checkbox"></td> -->
+                                <!-- <td id="deposit" rowspan="6" style="color:#ff5400;font-size:25px">
+                                    </td> -->
                             </tr>
                             <tr align="center">
-                                <td id="ttd">单间</td>
-                                <td id="ttd">400元</td>
+                                <td class="ttd">单间</td>
+                                <td class="ttd">400元</td>
                                 <!-- <td>0</td> -->
-                                <td id="ttd">
+                                <td class="ttd">
                                     <ul class="btn-numbox">
                                         <!-- <li><span class="number">数量</span></li> -->
                                         <li>
@@ -192,11 +178,11 @@
                                 </td>
                             </tr>
                             <tr align="center">
-                                <td rowspan="2" id="ns">南山乙所</td>
-                                <td id="nsb">标间</td>
-                                <td id="nsb">400元</td>
+                                <td rowspan="2" class="ns">南山乙所</td>
+                                <td class="nsb">标间</td>
+                                <td class="nsb">400元</td>
                                 <!-- <td>0</td> -->
-                                <td id="nsb">
+                                <td class="nsb">
                                     <ul class="btn-numbox">
                                         <!-- <li><span class="number">数量</span></li> -->
                                         <li>
@@ -219,10 +205,10 @@
                                 </td>
                             </tr>
                             <tr align="center">
-                                <td id="nsd">单间</td>
-                                <td id="nsd">400元</td>
+                                <td class="nsd">单间</td>
+                                <td class="nsd">400元</td>
                                 <!-- <td>0</td> -->
-                                <td id="nsd">
+                                <td class="nsd">
                                     <ul class="btn-numbox">
                                         <!-- <li><span class="number">数量</span></li> -->
                                         <li>
@@ -245,11 +231,11 @@
                                 </td>
                             </tr>
                             <tr align="center">
-                                <td rowspan="2" id="bh">百花2号</td>
-                                <td id="bhb">标间</td>
-                                <td id="bhb">400元</td>
+                                <td rowspan="2" class="bh">百花2号</td>
+                                <td class="bhb">标间</td>
+                                <td class="bhb">400元</td>
                                 <!-- <td>0</td> -->
-                                <td id="bhb">
+                                <td class="bhb">
                                     <ul class="btn-numbox">
                                         <!-- <li><span class="number">数量</span></li> -->
                                         <li>
@@ -273,14 +259,9 @@
                             </tr>
                         </table>
                     </div>
-
-                    <!-- <p id="check_tip"></p> -->
-                    <p class="sea-div">
-                        <label class="check_tip" id="check_tip" style="color:#ff5400;font-size: 15px"></label>
-                    </p>
-                    <!-- <p id="check_name"></p>
-                  <p id="check_phone"></p>
-                  <p id="check_email"></p> -->
+                    <br/>
+                    <br/>
+                    <label class="check_tip" id="check_tip" style="color:#ff5400;font-size: 1.5em"></label>
                     <input type="submit" class="search-but" value="预  订" onclick="check()" />
                 </form>
                 <div class="footer">
@@ -289,8 +270,10 @@
                     <br/>
                 </div>
                 <iframe name="hideIframe" hidden></iframe>
+                <div>
+                    <p id="hotel_info" value="" hidden="hidden"> 000</p>
+                </div>
             </div>
-        
     </div>
 
 </body>
@@ -325,12 +308,12 @@
     var num_jian_BHB = document.getElementById("num-jian_BHB");
     var input_num_BHB = document.getElementById("input-num_BHB");
 
-        /*获取剩余房数*/
-            var kucun_TTB = document.getElementById("kucun_TTB");
-            var kucun_TTD = document.getElementById("kucun_TTD");
-            var kucun_NSB = document.getElementById("kucun_NSB");
-            var kucun_NSD = document.getElementById("kucun_NSD");
-            var kucun_BHB = document.getElementById("kucun_BHB");
+    /*获取剩余房数*/
+    var kucun_TTB = document.getElementById("kucun_TTB");
+    var kucun_TTD = document.getElementById("kucun_TTD");
+    var kucun_NSB = document.getElementById("kucun_NSB");
+    var kucun_NSD = document.getElementById("kucun_NSD");
+    var kucun_BHB = document.getElementById("kucun_BHB");
 
     // var a = document.getElementById("startDate").value;
     // var startDate = document.getElementById("startDate");
@@ -353,11 +336,16 @@
     var sDate;
     var eDate;
     var days;  //预订天数
-    var deposit; //预订金金额
+    var deposit = document.getElementById("deposit"); //预订金金额
     var rNum;    //预订房数
+
+
+
+
     /*预订天数、预订金及剩余房数计算*/
-    setTimeout('getdate()', 10);
+    setTimeout('getdate()');
     function getdate() {
+
         startDate = document.getElementById("startDate");//入住日期
         endDate = document.getElementById("endDate");    //离店日期
         sArr = startDate.value.split("-");
@@ -366,24 +354,29 @@
         eDate = new Date(eArr[0], eArr[1], eArr[2]);
         days = (eDate - sDate) / (24 * 60 * 60 * 1000);  //预订天数
         rNum = parseInt(input_num_TTB.value) + parseInt(input_num_TTD.value) + parseInt(input_num_NSB.value) + parseInt(input_num_NSD.value) + parseInt(input_num_BHB.value);
+
+        perseDate(string);
+
+
+
         // document.getElementById("showdate").innerHTML = days;
         if (days > 0) {
-            deposit = 100 * parseInt(days) * rNum;
+            deposit.value = 100 * parseInt(days) * rNum;
             // document.getElementById("deposit").innerHTML = deposit;
             document.getElementById("date_tip").innerHTML = "";
         }
         else if (days < 0) {
             document.getElementById("date_tip").innerHTML = "请输入合法日期！";
-            deposit = 0;
+            deposit.value = 0;
             // document.getElementById("deposit").innerHTML = deposit;
         }
         else if (days == 0) {
-            deposit = 0;
+            deposit.value = 0;
             document.getElementById("date_tip").innerHTML = "请输入不同日期！";
             // document.getElementById("deposit").innerHTML = deposit;
         }
 
-        document.getElementById("deposit").innerHTML = deposit;
+        // document.getElementById("deposit").innerHTML = deposit;
         // else {
 
         //        deposit = 0;
@@ -407,9 +400,51 @@
         // document.getElementById("check_email").innerHTML = document.getElementById("email").value ;
 
 
-        status = setTimeout('getdate()', 10);
+        status = setTimeout('getdate()');
     }
 
+    function checkMin(checkin, checkout, array) {
+        var minDate = 23;
+        var b = new Array();
+        for (let i = 0; i < 5; i++) {
+            for (let j = checkin - minDate; index < checkout - minDate; j++) {
+                tmin = 1000;	// 将最少房间数量设置为一个较大值
+                if (tmin > array[i][j]) {
+                    b[i] = array[i][j];
+                }
+                // TODO: 将tmin传给对应房间的HTML数据即可
+                // ...
+            }
+
+            ////
+        }
+        return b;
+    }
+
+
+    function perseDate(string) {
+        var array = string.split(comma);
+        var a;
+        // var checkin=sdate;
+        // var checkout=edate;
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array.length; j++) {
+                a[i][j] = parseInt(array[i * 6 + j]);
+            }
+        }
+        var s = checkMin(sdate, edate, a);
+        kucun_TTB = s[0];
+        kucun_TTD = s[1];
+        kucun_NSB = s[2];
+        kucun_NSD = s[3];
+        kucun_BHB = s[4];
+        /*剩余房数赋值*/
+        document.getElementById("kucun_TTB").innerHTML = "(剩余:" + kucun_TTB + ")";
+        document.getElementById("kucun_TTD").innerHTML = "(剩余:" + kucun_TTD + ")";
+        document.getElementById("kucun_NSB").innerHTML = "(剩余:" + kucun_NSB + ")";
+        document.getElementById("kucun_NSD").innerHTML = "(剩余:" + kucun_NSD + ")";
+        document.getElementById("kucun_BHB").innerHTML = "(剩余:" + kucun_BHB + ")";
+    }
     function check() {
         var name = document.getElementById("name").value;
         var phonenum = document.getElementById("phonenum").value;

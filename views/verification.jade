@@ -1,19 +1,16 @@
-doctype html
+doctype transitional
 html
   head
-    meta(charset='utf-8')
-    title CCC2018酒店预订入口验证
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='format-detection', content='telephone=no')
+    title 东湖酒店预订
+    link(rel='stylesheet', type='text/css', href='css/global.css')
+    // <link rel="stylesheet" href="css/smoothness/jquery.ui.css" type="text/css" />
+    link(rel='stylesheet', type='text/css', href='css/note.css')
+    // <link rel="stylesheet" type="text/css" href="css/count_style.css" />
     style(type='text/css').
-      body {
-      margin: 0;
-      background-image: url('images/背景-1.jpg');
-      background-repeat: no-repeat;
-      background-position: 50% 0%;
-      background-size: 60% 150%;
-      }
-      #canvas {
-      cursor: pointer;
-      }
       .code {
       background-image: url('images/ccc2018.png');
       /* width: 80;
@@ -36,7 +33,7 @@ html
       var code;
       function createCode() {
       code = "";
-      var codeLength = 4; //验证码长度
+      var codeLength = 4; //验证码的长度
       var checkCode = document.getElementById("checkCode");
       var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
       'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -66,31 +63,31 @@ html
       return true;
       }
       }
-  body(bgcolor='#F0F8FF', onload='createCode()')
-    #div1(style='text-align: center; ')
-      img(src='images/ccc2018.png', width='60%', height='100%')
-      div(style='margin-top:50px;')
-        h1(style='margin:0;')
-          font(color='#2F4F4F', size='5') CCC2018酒店预订入口身份验证
-        p(style='margin:0;')
+  body(onload='createCode()')
+    // 中间
+    .webIndex
+      .stay-list-left
+        img(height='500px', width='100%', src='images/2D0r0r000000h08392FC5.jpg')
+        h3.search-head
+          font(color='#2F4F4F', style='font-family:Times New Roman', size='5') CCC2018酒店预订入口身份验证
+        p(style='margin:0 auto')
           font(color='#2F4F4F', size='3') (请使用CCC2018投稿系统注册信息登录)
+        br
+        br
+        br
         form(action='login_post', method='POST', onsubmit='return validateCode()')
-          div(style='text-align: center;margin-top:30px')
-            label(for="pin") 请输入您的 PIN: 
-            div
-              input.txt(type='text', size='20', maxlength='10', name='pin')
-          div(style='text-align: center;margin-top:10px')
-            label(for="name") 请输入您的姓名: 
-            div
-              input.txt(type='text', size='20', maxlength='20', name='name')
-          div(style='vertical-align:bottom;text-align:center;margin-top:10px;')
-            label(for="Vcode") 请输入验证码: 
-            div(style='text-align:center;')
-              input#inputCode(type='text',name='Vcode')
-              table(style='margin-top:5px', align='center', border='0')
-                td
-                  #checkCode.code(onclick='createCode()')
-            th
-             font(color='#DC143C', size='3') #{s}
-          div(style='text-align: center;margin-top:10px')
-            input#submit(type='submit', value='登录', style=' width:70px; height:30px; background-color:#2F4F4F;font-size:15px; border:2px solid #2F4F4F; color: #FFFFFF;text-align:center')
+          .sea-div
+            input.pin_input(placeholder='请输入您的 PIN 码', type='text', size='20', maxlength='10', name='pin')
+          .sea-div
+            input.pin_input(placeholder='请输入您的姓名', type='password', size='20', maxlength='10', name='name')
+          .sea-div
+            input#inputCode.pin_input(placeholder='请输入验证码', type='text', name='Vcode', autocomplete='off')
+          table(style='margin:1em auto', border='0')
+            td
+              #checkCode.code(onclick='createCode()')
+          br
+          div(style='margin:1em auto')
+            input#submit(type='submit', value='登录', style=' width:70px; height:30px; background-color:#2F4F4F;font-size:15px; border:2px solid #2F4F4F; color: #FFFFFF;vertical-align:middle;text-align:center')
+        br
+        br
+        br

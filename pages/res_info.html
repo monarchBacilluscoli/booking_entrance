@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>东湖酒店预订信息</title>
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <!-- <link rel="stylesheet" href="css/smoothness/jquery.ui.css" type="text/css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <link rel="stylesheet" type="text/css" href="css/count_style.css" />
+
+    <!–[if lt IE 9]>
+    <script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
+    <![endif]–>
+</head>
+<style>
+   
+</style>
+
+<body>
+    <!--中间-->
+    <div class="webIndex">
+            <div class="stay-list-left">
+                <!-- <h3 class="search-head">预订信息</h3> -->
+                <img height="10%" width=80% src="images/2D0r0r000000h08392FC5.jpg" />
+                <div class="room_table" style="margin-top: 3em">
+                <label  class="room_info"  style="margin:auto;font-size: 2.5em; font-weight: 900">预订信息</label>
+            </div>
+                <br/>
+                <br/>
+                <form>
+                <!-- <input type="text" placeholder="请输入PIN码搜索"  style="border:1px solid #1E90FF;color:#000;font-size:1.4em; width: auto; height: auto;margin:auto;text-align: center" /> -->
+                <!-- <input type="submit" value="搜索"style="background-color:#1E90FF;border-radius:5px;border:1px solid #1E90FF;color:#fff;font-size:1.4em; width: auto; height: auto;margin:auto;text-align: center" /> -->
+                </form>
+                <br/>
+                <br/>
+                <form method="get" target="hideIframe">
+                    <div class="room_table" style="margin-top: 3em">
+                        <div class="bill_num" >
+                        <font style="color:#1E90FF;font-size:1.4em; width: auto; height: auto;margin:auto;">订单号:</font><input type="text" style="border:1px solid #1E90FF;color:#000;font-size:1.4em; width: auto; height: auto;margin:auto;text-align: center" />
+                        </div>
+                        <table  class="table2" frame="border" cellpadding="15" cellspacing="0" align="center" rules="all" width=auto height=auto
+                            white-space="nowrap" style="margin:auto;">
+                            <tr align="center" class="tr1">
+                                <th>姓名</th>
+                                <th>PIN码</th>
+                                <th>邮箱</th>
+                                <th>房型</th>
+                                <!-- <th>剩余房数</th> -->
+                                <!-- <th>数量</th> -->
+                                <th>入店与离店日期</th>
+                                <th>是否已付预定金</th>
+                                <!-- <th>是否预订</th> -->
+                            </tr>
+                            <tr align="center">
+                                <td class="ttb">xx</td>
+                                <td class="ttb">123456</td>
+                                <td class="ttb">123456789@qq.com</td>
+                                <td class="ttb">听涛标间</td>
+                                <!-- <td>0</td> -->
+                                <td class="ttb">
+                                        <input type="text" value="0" style="border:1px solid #000;color:#000;font-size:1.4em; width: 2.5em; height: auto;margin:auto;text-align: center" />
+                                           日--
+                                           <input type="text" value="0" style="border:1px solid #000;color:#000;font-size:1.4em; width: 2.5em; height: auto;margin:auto;text-align: center" />
+                                           日
+                                </td>
+                                <td class="ttb">
+                                        <input id="yes" type="radio" value="1" name="gender">是
+                                        <input id="no" type="radio" value="0" name="gender">否
+                                        </td>
+                                <!-- <td  class="deposit_td"rowspan="6" ><input  type="text" id="deposit" value="0" readonly="readonly"  style="cursor:pointer; color:#ff5400;font-size:1.8em; width: 5em; height: auto;margin:auto;text-align: center"/>
+                                </td> -->
+                                <!-- <td id="deposit" rowspan="6" style="color:#ff5400;font-size:25px">
+                                    </td> -->
+                            </tr>
+                </table>
+                <br/>
+                <br/>
+                <input type="submit" class="conform-but" value="确认修改" onclick="check()" />
+                </form>
+                <br/>
+                <br/> 
+                <br/>
+                <br/> 
+                <br/>
+                <br/>
+                <div class="footer">
+                    <br/>
+                    <p style="color:#A9A9A9;">东湖宾馆酒店预订 &copy; 版权所有 CCC2018</p>
+                    <br/>
+                </div>
+                <iframe name="hideIframe" hidden></iframe>
+            </div>
+    </div>
+
+</body>
+
+
+
+<script>
+    /*房间数及按钮值变量*/
+    var num_jia_TTB = document.getElementById("num-jia_TTB");
+    var num_jian_TTB = document.getElementById("num-jian_TTB");
+    var input_num_TTB = document.getElementById("input-num_TTB");
+
+    var num_jia_TTD = document.getElementById("num-jia_TTD");
+    var num_jian_TTD = document.getElementById("num-jian_TTD");
+    var input_num_TTD = document.getElementById("input-num_TTD");
+    var kucun_TTD = document.getElementById("kucun_TTD");
+
+    var num_jia_NSB = document.getElementById("num-jia_NSB");
+    var num_jian_NSB = document.getElementById("num-jian_NSB");
+    var input_num_NSB = document.getElementById("input-num_NSB");
+
+    var num_jia_NSD = document.getElementById("num-jia_NSD");
+    var num_jian_NSD = document.getElementById("num-jian_NSD");
+    var input_num_NSD = document.getElementById("input-num_NSD");
+
+    var num_jia_BHB = document.getElementById("num-jia_BHB");
+    var num_jian_BHB = document.getElementById("num-jian_BHB");
+    var input_num_BHB = document.getElementById("input-num_BHB");
+
+    /*获取剩余房数*/
+    var kucun_TTB = document.getElementById("kucun_TTB");
+    var kucun_TTD = document.getElementById("kucun_TTD");
+    var kucun_NSB = document.getElementById("kucun_NSB");
+    var kucun_NSD = document.getElementById("kucun_NSD");
+    var kucun_BHB = document.getElementById("kucun_BHB");
+
+    // var a = document.getElementById("startDate").value;
+    // var startDate = document.getElementById("startDate");
+    // var endDate = document.getElementById("endDate");
+    // var sArr=startDate.value.split("-");
+    // var eArr=endDate.value.split("-");
+    // var sDate=new Date(sArr[0],sArr[1],sArr[2]);
+    // var eDate=new Date(eArr[0],eArr[1],eArr[2]);
+    // var days=(eDate-sDate)/(24*60*60*1000);
+    // alert(days);
+
+    // $(document).ready(function(){
+    //             var status = setTimeout('getdate()',10); 
+    //         });
+
+    var startDate;//入住日期
+    var endDate;    //离店日期
+    var sArr;
+    var eArr;
+    var sDate;
+    var eDate;
+    var days;  //预订天数
+    var deposit = document.getElementById("deposit"); //预订金金额
+    var rNum;    //预订房数
+    /*预订天数、预订金及剩余房数计算*/
+    setTimeout('getdate()');
+    function getdate() {
+        startDate = document.getElementById("startDate");//入住日期
+        endDate = document.getElementById("endDate");    //离店日期
+        sArr = startDate.value.split("-");
+        eArr = endDate.value.split("-");
+        sDate = new Date(sArr[0], sArr[1], sArr[2]);
+        eDate = new Date(eArr[0], eArr[1], eArr[2]);
+        days = (eDate - sDate) / (24 * 60 * 60 * 1000);  //预订天数
+        rNum = parseInt(input_num_TTB.value) + parseInt(input_num_TTD.value) + parseInt(input_num_NSB.value) + parseInt(input_num_NSD.value) + parseInt(input_num_BHB.value);
+        // document.getElementById("showdate").innerHTML = days;
+        if (days > 0) {
+            deposit.value = 100 * parseInt(days) * rNum;
+            // document.getElementById("deposit").innerHTML = deposit;
+            document.getElementById("date_tip").innerHTML = "";
+        }
+        else if (days < 0) {
+            document.getElementById("date_tip").innerHTML = "请输入合法日期！";
+            deposit.value = 0;
+            // document.getElementById("deposit").innerHTML = deposit;
+        }
+        else if (days == 0) {
+            deposit.value = 0;
+            document.getElementById("date_tip").innerHTML = "请输入不同日期！";
+            // document.getElementById("deposit").innerHTML = deposit;
+        }
+
+        // document.getElementById("deposit").innerHTML = deposit;
+        // else {
+
+        //        deposit = 0;
+        //        }
+        // if(deposit==0){
+        //     document.getElementById("deposit").innerHTML = deposit + "<br/>" + "(请至少预订一间房！)";
+        // }
+
+
+        /*剩余房数赋值*/
+        // document.getElementById("kucun_TTB").innerHTML = "(剩余:" + kucun_TTB + ")";
+        // document.getElementById("kucun_TTD").innerHTML = "(剩余:" + kucun_TTD + ")";
+        // document.getElementById("kucun_NSB").innerHTML = "(剩余:" + kucun_NSB + ")";
+        // document.getElementById("kucun_NSD").innerHTML = "(剩余:" + kucun_NSD + ")";
+        // document.getElementById("kucun_BHB").innerHTML = "(剩余:" + kucun_BHB + ")";
+
+
+
+        // document.getElementById("check_name").innerHTML = document.getElementById("name").value ;
+        // document.getElementById("check_phone").innerHTML = document.getElementById("phonenum").value ;
+        // document.getElementById("check_email").innerHTML = document.getElementById("email").value ;
+
+
+        status = setTimeout('getdate()');
+    }
+
+    function check() {
+        var name = document.getElementById("name").value;
+        var phonenum = document.getElementById("phonenum").value;
+        var email = document.getElementById("email").value;
+        if (name == null || name == "") {
+            // alert("请输入姓名!");
+            document.getElementById("check_tip").innerHTML = "请输入姓名！";
+            return false;
+        }
+        if (phonenum == null || phonenum == "") {
+            // alert("请输入手机号码!");
+            document.getElementById("check_tip").innerHTML = "请输入手机号码！";
+            return false;
+        }
+        if (email == null || email == "") {
+            // alert("请输入邮箱!");
+            document.getElementById("check_tip").innerHTML = "请输入邮箱！";
+            return false;
+        }
+        if (days == 0) {
+            document.getElementById("check_tip").innerHTML = "请输入不同日期！";
+            return false;
+        }
+        if (days < 0) {
+            document.getElementById("check_tip").innerHTML = "请输入合法日期！";
+            return false;
+        }
+        if (deposit == 0) {
+            document.getElementById("check_tip").innerHTML = "请至少预订一间房！";
+            return false;
+        }
+        if ((name != null || name != "") && (phonenum != null || phonenum != "") && (email != null || email != "")) {
+
+            if (days == 0) {
+                document.getElementById("check_tip").innerHTML = "请输入不同日期！";
+                return false;
+            }
+            if (days < 0) {
+                document.getElementById("check_tip").innerHTML = "请输入合法日期！";
+                return false;
+            }
+            if (rNum == 0) {
+                document.getElementById("check_tip").innerHTML = "请至少预订一间房！";
+                return false;
+            }
+            if (days > 0 && deposit != 0) {
+                alert("预订成功!");
+                // document.getElementById("check_tip").innerHTML = "预订成功！";
+                //window.location.href = 'http://127.0.0.1:8081/register_form';   // 如果是在这里进行url访问，则似乎不会上传任何值进入后台
+                return true;
+            }
+        }
+        // else {
+        //     alert("预订失败!");
+        //     return false;
+        // }
+    }
+
+    /*听涛2号标间房数按钮*/
+    num_jia_TTB.onclick = function () {
+
+        input_num_TTB.value = parseInt(input_num_TTB.value) + 1;
+
+        if (input_num_TTB.value >= kucun_TTB.value) {
+            input_num_TTB.value = kucun_TTB.value;
+        }
+
+    }
+
+    num_jian_TTB.onclick = function () {
+
+        if (input_num_TTB.value <= 0) {
+            input_num_TTB.value = 0;
+        } else {
+
+            input_num_TTB.value = parseInt(input_num_TTB.value) - 1;
+        }
+
+    }
+    /*听涛2号单间房数按钮*/
+    num_jia_TTD.onclick = function () {
+
+        input_num_TTD.value = parseInt(input_num_TTD.value) + 1;
+
+        if (input_num_TTD.value >= kucun_TTD.value) {
+            input_num_TTD.value = kucun_TTD.value;
+        }
+    }
+
+    num_jian_TTD.onclick = function () {
+
+        if (input_num_TTD.value <= 0) {
+            input_num_TTD.value = 0;
+        } else {
+
+            input_num_TTD.value = parseInt(input_num_TTD.value) - 1;
+        }
+    }
+
+
+    /*南山乙所标间房数按钮*/
+    num_jia_NSB.onclick = function () {
+        input_num_NSB.value = parseInt(input_num_NSB.value) + 1;
+        if (input_num_NSB.value >= kucun_NSB.value) {
+            input_num_NSB.value = kucun_NSB.value;
+        }
+    }
+
+    num_jian_NSB.onclick = function () {
+
+        if (input_num_NSB.value <= 0) {
+            input_num_NSB.value = 0;
+        } else {
+
+            input_num_NSB.value = parseInt(input_num_NSB.value) - 1;
+        }
+
+    }
+    /*南山乙所单间房数按钮*/
+    num_jia_NSD.onclick = function () {
+        input_num_NSD.value = parseInt(input_num_NSD.value) + 1;
+        if (input_num_NSD.value >= kucun_NSD.value) {
+            input_num_NSD.value = kucun_NSD.value;
+        }
+    }
+
+    num_jian_NSD.onclick = function () {
+
+        if (input_num_NSD.value <= 0) {
+            input_num_NSD.value = 0;
+        } else {
+
+            input_num_NSD.value = parseInt(input_num_NSD.value) - 1;
+        }
+
+    }
+
+    /*百花2号标间房数按钮*/
+    num_jia_BHB.onclick = function () {
+        input_num_BHB.value = parseInt(input_num_BHB.value) + 1;
+        if (input_num_BHB.value >= kucun_BHB.value) {
+            input_num_BHB.value = kucun_BHB.value;
+        }
+    }
+
+    num_jian_BHB.onclick = function () {
+
+        if (input_num_BHB.value <= 0) {
+            input_num_BHB.value = 0;
+        } else {
+
+            input_num_BHB.value = parseInt(input_num_BHB.value) - 1;
+        }
+
+    }
+		/* 如果在和后台做数据交互时，出现点击加减按钮的值无法传到后台的情况，可以用下面这种方式
+		$("body").on("click", ".num-jian", function(m) {
+			var obj = $(this).closest("ul").find(".input-num");
+			if(obj.val() <= 0) {
+			     obj.val(0);
+			} else {
+			     obj.val(parseInt(obj.val()) - 1);
+			}
+			obj.change();
+		 });
+		
+		$("body").on("click", ".num-jia", function(m) {
+			var obj = $(this).closest("ul").find(".input-num");
+			obj.val(parseInt(obj.val()) + 1);
+			obj.change();
+		});*/
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>东湖酒店预订</title>
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <!-- <link rel="stylesheet" href="css/smoothness/jquery.ui.css" type="text/css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/note.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/count_style.css" /> -->
+
+    
+    <style type="text/css">
+        /* body {
+          margin: 0;
+          background-image: url('images/背景-1.jpg');
+          background-repeat: no-repeat;
+          background-position: 50% 0%;
+          background-size: 950px 300%;
+        } */
+      </style>
+        <script type="text/javascript">
+            var c = 1000
+            // var d = 1000
+            var t
+            var flag = 0
+            function timedCount() {
+              --c
+              // --d
+              setTimeout("timedCount()", 10)
+              var cb = document.getElementById("check");
+              cb.onclick = function () {
+                if (cb.checked == true) {
+                  flag = 1;
+                }
+                else {
+                  flag = 0;
+                }
+              }
+        
+              // document.getElementById('button1').innerHTML = "点击进入东湖宾馆酒店预订系统 " + parseInt(d / 100) + "s"
+              document.getElementById('button').innerHTML = "点击进入协议酒店预订系统 " + parseInt(c / 100) + "s"
+              // if(d<=0){
+              //   // setTimeout("document.getElementById('button1').innerHTML=点击进入东湖宾馆酒店预订系统", 0);
+              //   // document.getElementById('button1').innerHTML = "点击进入东湖宾馆酒店预订系统"
+              //   // document.getElementById("button1").disabled = false; 
+              // }
+              if (c <= 0) {
+                c = 0;
+                document.getElementById('button').innerHTML="点击进入协议酒店预订系统";
+                if (flag == 1) {
+                  document.getElementById("button").disabled = false;
+                }
+                else {
+                  document.getElementById("button").disabled = true;
+                }
+                document.getElementById('button').innerHTML = "点击进入协议酒店预订系统"
+              }
+            }
+            setTimeout("timedCount()", 10)
+          </script>
+</head>
+
+<body>
+    <!--中间-->
+    <div class="webIndex">
+            <div class="stay-list-left">
+                <img height=500px width=100% src="images/2D0r0r000000h08392FC5.jpg" />
+                <h3 class="search-head">
+                        <font style="font-family:Times New Roman" color="#000000" size="6">CCC2018</font><font style="font-family:KaiTi">携程协议酒店预订须知</font>
+                    <br/><br/><br/>
+                <div class="info_input">
+                    <ul >
+                            <li class="li1"><font color="#DC143C">为了方便各位与会人员住宿与交通，组委会与在线票务公司——携程达成合作协议，</font>通过携程提供的 <font style="font-family:Times New Roman">CCC2018</font> 会议专属系统预订酒店，不仅在价格上享有优惠，同时在酒店品质上，也有一定的保障。<font color="#DC143C">会议期间，会务组提供从这些酒店到会场的免费巴士，早晚定点定时接送。</font></li>
+                            <li class="li">进入携程为本次会议准备的预订系统前，<font color="#DC143C"><b>请仔细阅读以下预订须知：</b>
+                                    </font></li>
+                            <li class="li">1）订房时请用<b>手机扫描预订系统提供的二维码</b>，进入携程为&nbsp;<font style="font-family:Times New Roman">CCC2018</font>&nbsp;准备的订房系统。</li>
+                            <li class="li">2）以下为携程为本次会议提供的酒店情况：
+                                    <br />
+                                    <img src="images/酒店列表.png" width="105%" height="400px" >
+                                    <br/><font color="#DC143C">*上表中显示的标间/大床房数量为该酒店为本次会议提供的房间总数</font></li>
+                            <li class="li">3) <font color="#6495ED"><b>CCC2018携程酒店预订金</b></font>为每间房每天<font color="#6495ED"><b>100元</b></font>，<font color="#DC143C">房间的每日单价见上表，</font>同一价格有标间和大床房两种房型可供选择，房价含双早。
+                            <li class="li">4) <font color="#6495ED"><b>携程预订系统仅收取预订金，到店后请补齐住宿尾款。住宿全额发票由酒店前台开具。</b></font>    
+                            <li class="li">5）如有任何疑问，请联系：携程杨经理：13545350430（09:00-22:00）<br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                会务组龚老师：18040597696（09:00-22:00）
+                            </ul>
+                       <br/><br/>
+                       <p>
+                         <font style="font-family:KaiTi" size="5">同意以上条款,请用手机扫描下面的二维码，进入<font style="font-family:Times New Roman">CCC2018</font>携程酒店预订系统。</font>
+                          </p>
+                          <br/><br/>
+                          <p  margin="auto" style=" width:900px; height:300%; ">
+                            <img src="images/二维码.png" width="30%" height="30%">
+                            <br />
+                            <br />
+                            <br />
+                        </p>
+                        </div>
+            </div>
+</div>
+</body>
+</html>

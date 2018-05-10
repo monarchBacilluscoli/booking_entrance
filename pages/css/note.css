@@ -1,0 +1,100 @@
+﻿.footer{  margin: 10px auto 0px;text-align: center;}
+
+/*************************************************/
+.webIndex{
+    margin:0 auto;
+    text-align: center; /*让div内部文字居中*/
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+/**********************************/
+
+.stay-list-left{
+    width: 60%;
+    height: auto;
+    position:relative;           
+    text-align: center;
+    margin:auto;
+    background-color: #dcdcdc;
+}
+.stay-list-left .search-head{
+    margin-top: 2em;
+    font-size: 3em;
+    font-family: 'SimSun';
+    color:#000;
+    font-weight: 900;
+    /* background: url("../images/标题背景.png") 290px 300px; */
+}
+.stay-list-left  .sea-div{
+    /* height: 3em;
+    line-height: 3em; */
+    margin-top: 1.5em;
+    position: relative;
+}
+
+.stay-list-left .info_input .li{
+    width: 80%;
+    text-align: left;
+    /* margin-left: 0%; */
+    display: block;
+    /* float: left; */
+    line-height: 2em;
+    text-indent: -1.5em;
+    color:#555;
+    font-weight: 900;
+    font-family:"NSimSun";
+    font-size: 1.6em;
+    margin:auto;
+    padding: 0;
+    position: relative;
+    padding-left: 3em;
+    
+    /* border: #3694ff; */
+    /* border-radius: 8px; */
+}
+.stay-list-left .info_input .li1{
+    width: 80%;
+    text-align: left;
+    /* margin-left: 0%; */
+    display: block;
+    /* float: left; */
+    line-height: 2em;
+    text-indent: 1.5em;
+    color:#555;
+    font-weight: 900;
+    font-family:"NSimSun";
+    font-size: 1.6em;
+    margin:auto;
+    padding: 0;
+    position: relative;
+    /* padding-left: 3em; */
+    
+    /* border: #3694ff; */
+    /* border-radius: 8px; */
+}
+.stay-list-left .pin_input{
+    width: auto;
+    height: 2em;
+    line-height: 3em;
+    color: #000;
+    text-align: left;
+    font-family: arial;
+    border: 2px solid #2F4F4F;
+    border-radius: 5px;
+    font-size: 1.3em;
+    margin:auto;
+    /* text-indent: 1em; */
+    display: block;
+    float: center;
+}
+
+/****************网页a标签hover事件******************/
+/* .index-img-small .img-details .name:hover,.bar-recommend-ul li .recommend-name:hover,
+.hot-rank-ul .hot-name:hover,.nav-more .nav-more-div>a:hover,
+.mp-list-small .img-details .name:hover,.repast-search>div>a:hover,
+.repast-table .repast-td .name:hover{
+    color: #ff5400;
+    text-decoration: underline;
+} */

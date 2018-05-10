@@ -1,0 +1,160 @@
+form(action='reservation_get', method='GET') 
+          table.table1(frame='border', cellpadding='15', cellspacing='0', align='center', rules='all', width='auto', height='auto', white-space='nowrap', style='margin:auto;')
+            tr
+              .sea-div
+                td
+                  label.info_input 姓名：
+                td
+                  input#name.hotel-name(name='name', type='text', placeholder='请输入姓名(必填)', required='required',value = '#{name}')
+                td(rowspan='6', width='30em')
+            tr(height='20em')
+            tr
+              .sea-div
+                td
+                  label.info_input 手机号：
+                td
+                  input#phonenum.hotel-name(name='phonenum',type='tel', placeholder='请输入手机号(必填)', required='required',value = '#{phone}')
+            tr(height='25em')
+            tr
+              .sea-div
+                td
+                  label.info_input 邮箱：
+                td
+                  input#email.hotel-name(type='email', placeholder='请输入邮箱(必填)', required='required', value = '#{email}')
+            tr(height='20em')
+            // <h3 class="search-title">住宿预订</h3>
+            tr
+              .sea-div
+                td
+                  label.search-lab 入住日期：
+                td
+                  input#startDate.hotel-name(type='date', oninput='OnInput (event)', onpropertychange='OnPropChanged (event)', value='2018-07-23', min='2018-07-23', max='2018-07-28')
+            tr(height='20em')
+            tr
+              .sea-div
+                td
+                  label.search-lab 离店日期：
+                td
+                  input#endDate.hotel-name(type='date', oninput='OnInput (event)', onpropertychange='OnPropChanged (event)', value='2018-07-24', min='2018-07-23', max='2018-07-28')
+          label#date_tip.date_check
+          br
+          br
+          // <input  type="button"  class="search-but" value="Show days" onclick="getdate()">
+          // <p id="showdate"></p>
+          //
+            <p class="room_info">
+            <label  id="room_info" style="font-size: 20px; font-weight: 900">东湖宾馆房间信息</label>
+            </p>
+          .room_table
+            label.room_info(style='margin:auto;font-size: 1.6em; font-weight: 900') 东湖宾馆房间信息
+            br
+            br
+            table.table2(frame='border', cellpadding='15', cellspacing='0', align='center', rules='all', width='auto', height='auto', white-space='nowrap', style='margin:auto;')
+              tr.tr1(align='center')
+                th 区域
+                th 房型
+                th 价格 
+                // <th>剩余房数</th>
+                th
+                  | 请输入预订房数
+                  br
+                  font(size='2', color='#ff5400') (预订金每天每间100元)
+                th 需付预定金
+                // <th>是否预订</th>
+              tr(align='center')
+                td.tt(rowspan='2') 听涛2号
+                td.ttb 标间
+                td.ttb 400元
+                // <td>0</td>
+                td.ttb
+                  ul.btn-numbox
+                    // <li><span class="number">数量</span></li>
+                    li
+                      ul.count
+                        li
+                          span#num-jian_TTB.num-jian_TTB(style='background-color: #1E90FF;') -
+                        li
+                          input#input-num_TTB.input-num_TTB(type='text', value='0')
+                        li
+                          span#num-jia_TTB.num-jia_TTB(style='background-color: #1E90FF;') +
+                    li
+                      span#kucun_TTB.kucun_TTB(value='20') (剩余：)
+                td.deposit_td(rowspan='6')
+                  input#deposit(type='text', value='0', readonly='readonly', style='color:#ff5400;font-size:1.8em; width: 5em; height: auto;margin:auto;text-align: center')
+                //
+                  <td id="deposit" rowspan="6" style="color:#ff5400;font-size:25px">
+                  </td>
+              tr(align='center')
+                td.ttd 单间
+                td.ttd 400元
+                // <td>0</td>
+                td.ttd
+                  ul.btn-numbox
+                    // <li><span class="number">数量</span></li>
+                    li
+                      ul.count
+                        li
+                          span#num-jian_TTD.num-jian_TTD(style='background-color: #1E90FF;') -
+                        li
+                          input#input-num_TTD.input-num_TTD(type='text', value='0')
+                        li
+                          span#num-jia_TTD.num-jia_TTD(style='background-color: #1E90FF;') +
+                    li
+                      span#kucun_TTD.kucun_TTD(value='20') (剩余：)
+              tr(align='center')
+                td.ns(rowspan='2') 南山乙所
+                td.nsb 标间
+                td.nsb 400元
+                // <td>0</td>
+                td.nsb
+                  ul.btn-numbox
+                    // <li><span class="number">数量</span></li>
+                    li
+                      ul.count
+                        li
+                          span#num-jian_NSB.num-jian_NSB(style='background-color: #1E90FF;') -
+                        li
+                          input#input-num_NSB.input-num_NSB(type='text', value='0')
+                        li
+                          span#num-jia_NSB.num-jia_NSB(style='background-color: #1E90FF;') +
+                    li
+                      span#kucun_NSB.kucun_NSB(value='20') (剩余：)
+              tr(align='center')
+                td.nsd 单间
+                td.nsd 400元
+                // <td>0</td>
+                td.nsd
+                  ul.btn-numbox
+                    // <li><span class="number">数量</span></li>
+                    li
+                      ul.count
+                        li
+                          span#num-jian_NSD.num-jian_NSD(style='background-color: #1E90FF;') -
+                        li
+                          input#input-num_NSD.input-num_NSD(type='text', value='0')
+                        li
+                          span#num-jia_NSD.num-jia_NSD(style='background-color: #1E90FF;') +
+                    li
+                      span#kucun_NSD.kucun_NSD(value='20') (剩余：)
+              tr(align='center')
+                td.bh(rowspan='2') 百花2号
+                td.bhb 标间
+                td.bhb 400元
+                // <td>0</td>
+                td.bhb
+                  ul.btn-numbox
+                    // <li><span class="number">数量</span></li>
+                    li
+                      ul.count
+                        li
+                          span#num-jian_BHB.num-jian_BHB(style='background-color: #1E90FF;') -
+                        li
+                          input#input-num_BHB.input-num_BHB(type='text', value='0')
+                        li
+                          span#num-jia_BHB.num-jia_BHB(style='background-color: #1E90FF;') +
+                    li
+                      span#kucun_BHB.kucun_BHB(value='20') (剩余：)
+          br
+          br
+          label#check_tip.check_tip(style='color:#ff5400;font-size: 1.5em')
+          input.search-but(type='submit', value='预  订')
