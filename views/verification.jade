@@ -1,93 +1,112 @@
-doctype transitional
-html
-  head
-    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;')
-    meta(name='apple-mobile-web-app-capable', content='yes')
-    meta(name='format-detection', content='telephone=no')
-    title 东湖酒店预订
-    link(rel='stylesheet', type='text/css', href='css/global.css')
-    // <link rel="stylesheet" href="css/smoothness/jquery.ui.css" type="text/css" />
-    link(rel='stylesheet', type='text/css', href='css/note.css')
-    // <link rel="stylesheet" type="text/css" href="css/count_style.css" />
-    style(type='text/css').
-      .code {
-      background-image: url('images/ccc2018.png');
-      /* width: 80;
-      height: 5; */
-      font-family: Arial;
-      /* font-style:italic; */
-      color: black;
-      font-size: 25px;
-      border: 0;
-      padding: 2px 3px;
-      letter-spacing: 3px;
-      font-weight: bolder;
-      float: center;
-      cursor: pointer;
-      line-height: 25px;
-      text-align: center;
-      vertical-align: middle;
-      }
-    script(type='text/javascript', language='javascript').
-      var code;
-      function createCode() {
-      code = "";
-      var codeLength = 4; //验证码的长度
-      var checkCode = document.getElementById("checkCode");
-      var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
-      for (var i = 0; i < codeLength; i++) {
-      var charNum = Math.floor(Math.random() * 52);
-      code += codeChars[charNum];
-      }
-      if (checkCode) {
-      checkCode.className = "code";
-      checkCode.innerHTML = code;
-      }
-      }
-      function validateCode() {
-      var inputCode = document.getElementById("inputCode").value;
-      if (inputCode.length <= 0) {
-      alert("请输入验证码！");
-      createCode();
-      return false;
-      }
-      else if (inputCode.toUpperCase() != code.toUpperCase()) {
-      alert("验证码输入错误！");
-      createCode();
-      return false;
-      }
-      else if (inputCode.toUpperCase() == code.toUpperCase()) {
-      return true;
-      }
-      }
-  body(onload='createCode()')
-    // 中间
-    .webIndex
-      .stay-list-left
-        img(height='500px', width='100%', src='images/2D0r0r000000h08392FC5.jpg')
-        h3.search-head
-          font(color='#2F4F4F', style='font-family:Times New Roman', size='5') CCC2018酒店预订入口身份验证
-        p(style='margin:0 auto')
-          font(color='#2F4F4F', size='3') (请使用CCC2018投稿系统注册信息登录)
-        br
-        br
-        br
-        form(action='login_post', method='POST', onsubmit='return validateCode()')
-          .sea-div
-            input.pin_input(placeholder='请输入您的 PIN 码', type='text', size='20', maxlength='10', name='pin')
-          .sea-div
-            input.pin_input(placeholder='请输入您的姓名', type='password', size='20', maxlength='10', name='name')
-          .sea-div
-            input#inputCode.pin_input(placeholder='请输入验证码', type='text', name='Vcode', autocomplete='off')
-          table(style='margin:1em auto', border='0')
-            td
-              #checkCode.code(onclick='createCode()')
-          br
-          div(style='margin:1em auto')
-            input#submit(type='submit', value='登录', style=' width:70px; height:30px; background-color:#2F4F4F;font-size:15px; border:2px solid #2F4F4F; color: #FFFFFF;vertical-align:middle;text-align:center')
-        br
-        br
-        br
+doctype html
+html(lang='zh-CN')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        // 启用移动显示支持，宽度自适应，初始缩放1倍，不允许用户缩放——>这就更像原生应用
+        meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+        // 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！
+        title 酒店预订身份验证
+        // Bootstrap
+        link(href='./bootstrap-3.3.7-dist/css/bootstrap.min.css', rel='stylesheet')
+        // jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边)
+        script(src='./bootstrap-3.3.7-dist/js/jquery.min.js')
+        // 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。
+        script(src='./bootstrap-3.3.7-dist/js/bootstrap.min.js')
+        // HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能
+        // 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用
+        //if lt IE 9
+            script(src='https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js')
+            script(src='https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js')
+        style(type='text/css').
+            .code {
+            background-image: url('images/ccc2018.png');
+            /* width: 80;
+            height: 5; */
+            font-family: Arial;
+            /* font-style:italic; */
+            color: black;
+            font-size: 25px;
+            border: 0;
+            padding: 2px 3px;
+            letter-spacing: 3px;
+            font-weight: bolder;
+            float: center;
+            cursor: pointer;
+            line-height: 25px;
+            text-align: center;
+            vertical-align: middle;
+            }
+        script(type='text/javascript', language='javascript').
+            var code;
+            function createCode() {
+            code = "";
+            var codeLength = 4; //验证码的长度
+            var checkCode = document.getElementById("checkCode");
+            var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+            'x', 'y', 'z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+            'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+            for (var i = 0; i < codeLength; i++) {
+            var charNum = Math.floor(Math.random() * 52);
+            code += codeChars[charNum];
+            }
+            if (checkCode) {
+            checkCode.className = "code";
+            checkCode.innerHTML = code;
+            }
+            }
+            function validateCode() {
+            var inputCode = document.getElementById("inputCode").value;
+            if (inputCode.length <= 0) {
+            alert("请输入验证码！");
+            createCode();
+            return false;
+            } else if (inputCode.toUpperCase() != code.toUpperCase()) {
+            alert("验证码输入错误！");
+            createCode();
+            return false;
+            } else if (inputCode.toUpperCase() == code.toUpperCase()) {
+            return true;
+            }
+            }
+    body(onload='createCode()')
+        img.img-responsive.center-block(src='./images/2D0r0r000000h08392FC5.jpg', alt='中国控制会议')
+        .container
+            .row.lead
+                .col-md-8.col-md-offset-2(style='background-color:#ffffff;box-shadow:inset 1px -1px 1px #ffffff,inset -1px 1px 1px #ffffff;')
+                    h1.text-center CCC2018酒店入口身份验证
+                    p.lead.text-center （请使用CCC2018投稿系统注册信息登陆）
+                    form(role='form', action='login_post', method='POST', size='20', maxlength='10', name='pin', onsubmit='return validateCode()')
+                        // 这里必须要有role="form"
+                        .form-group
+                            // 用于处理响应式
+                            label(for='pin') PIN
+                            input#pin.form-control(type='text', placeholder='请输入PIN码', name='pin')
+                        .form-group
+                            label(for='name') 姓名
+                            input#name.form-control(type='text', placeholder='请输入姓名', name='name', data-toggle='popover', data-placement='top', title='提示', data-content='外籍与会者或注册时仅留有英文名者，请输入预留的英文姓氏')
+                        .from-group
+                            label(for='code') 验证码
+                            input#inputCode.form-control(type='text', placeholder='请输入验证码', autocomplete='off')
+                        table(style='margin:1em auto', border='0')
+                            td
+                                #checkCode.code(onclick='createCode()')
+                        p.text-danger #{s}
+                        //
+                            <button type="submit" class="btn btn-default btn-block">
+                            <span class="glyphicon glyphicon-log-in"></span> 登陆(全宽区块按钮)
+                            </button>
+                        div
+                            button.btn.btn-primary.btn-block(type='submit', style='font-size: 100%')
+                                // 一个组件有多个CSS属性的方式就在这了！
+                                // 这个按钮要显得大必须要字体大
+                                span.glyphicon.glyphicon-log-in
+                                |   登录
+                    br
+                    br
+            script.
+                $(function () {
+                $("[data-toggle='popover']").popover();
+                });

@@ -22,6 +22,7 @@ var urlencodedParser = bodyParser.urlencoded({
 app.use(express.static('pages'));
 app.use(express.static('bootstrap'));
 app.use(express.static('views'));
+app.use(express.static('TF迁移'))
 
 // var IS_TEST = false; // 测试用开关, 已废弃
 
@@ -164,13 +165,14 @@ app.get('/', function (req, res) {
     // }
     // res.render('fuck', {e:a});
     // res.send('what');
-    res.sendFile(__dirname + '/' + 'pages/attention.html');
+    // res.sendFile(__dirname + '/' + 'pages/attention.html');
+    res.sendFile(__dirname+'/'+'TF迁移/home.html')
     return;
 })
 
 // 登陆页面
 app.get('/login_get', function (req, res) {
-    res.render('verification.jade');
+    res.render('verification.jade',{s:'test'});
 })
 
 // TODO: 登陆请求，显示订房余数，选择并订房，计算结果，处理数据库剩余房间
@@ -188,6 +190,7 @@ app.post('/login_post', urlencodedParser, function (req, res) {
             console.log("IP: " + getClientIp(req));
             var warningString = 'Wrong PIN, please try it again or register in TCCT'; // 登陆提示
             res.render('verification', {
+                show: 'display:block;',
                 s: warningString
             });
             return;
@@ -216,6 +219,7 @@ app.post('/login_post', urlencodedParser, function (req, res) {
                 console.log('------------------------------------------------------------\n\n');
                 var warningString = 'Check your name and try it again';
                 res.render('verification', {
+                    show: 'display:block;',
                     s: warningString
                 });
                 return;
@@ -232,6 +236,7 @@ app.post('/login_post', urlencodedParser, function (req, res) {
                     if (err) {
                         var warningString = 'System Error: @regenerate session. </br>Please contact administor.';
                         res.render('verification', {
+                            show: 'display:block;',
                             s: warningString
                         });
                         return;
@@ -249,7 +254,7 @@ app.post('/login_post', urlencodedParser, function (req, res) {
 })
 
 // 选择进入携程
-app.get('/xiecheng_get', function (req, res) {
+app.get('/xiecheng_choice', function (req, res) {
     var warningString = checkSession(req.session);
     if (warningString) { // 如果存在sessionCheck不通过（直接URL/页面停留过长），那么将存在提示字符串，并退回登陆页面
         res.render('verification', {
@@ -257,7 +262,22 @@ app.get('/xiecheng_get', function (req, res) {
         })
         return;
     } else {
-        res.sendFile(__dirname + '/' + 'pages' + '/' + 'QR.html'); // 进入携程二维码
+        // res.render('hotel',{a:1}); // 进入携程
+        res.sendFile(__dirname + '/pages/hotelx.html')
+    }
+})
+
+// 选择进入东湖
+app.get('/donghu_choice', function (req, res) {
+    var warningString = checkSession(req.session);
+    if (warningString) { // 如果存在sessionCheck不通过（直接URL/页面停留过长），那么将存在提示字符串，并退回登陆页面
+        res.render('verification', {
+            s: warningString
+        })
+        return;
+    } else {
+        // res.render('hotel',{a:0}); // 进入东湖
+        res.sendFile(__dirname + '/pages/hoteld.html')
     }
 })
 
@@ -266,6 +286,7 @@ app.get('/donghu_choices', function (req, res) {
     var warningString = checkSession(req.session);
     if (warningString) { // 如果存在sessionCheck不通过（直接URL/页面停留过长），那么将存在提示字符串，并退回登陆页面
         res.render('verification', {
+            show: 'display:block;',
             s: warningString
         });
         return;
@@ -571,7 +592,16 @@ app.get('/logout', function (req, res, next) {
 })
 // 测试Bootstrap页面
 app.get('/test',function(req,res){
-    res.sendFile(__dirname + '/' + 'pages/Hello_world.html');
+    res.sendFile(__dirname + '/' + 'pages/attention.html');
+});
+app.get('/test2',function(req,res){
+    res.sendFile(__dirname + '/' + 'pages/verification.html');
+});
+app.get('/test3',function(req,res){
+    res.sendFile(__dirname + '/' + 'pages/choice.html');
+});
+app.get('/test4',function(req,res){
+    res.sendFile(__dirname + '/' + 'pages/hotel.html'); 
 });
 
 // 设置监听端口为8081

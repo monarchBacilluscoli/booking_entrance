@@ -23,59 +23,94 @@
 <body>
 	<p>以下是基于有序列表的面包屑导航</p>
 	<ol class="breadcrumb">
-		<li><a href="#">登陆</a></li>
-		<li><a href="#">系统选择</a></li>
+		<li>
+			<a href="#">登陆</a>
+		</li>
+		<li>
+			<a href="#">系统选择</a>
+		</li>
 		<li>东湖宾馆预定须知</li>
 	</ol>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3" style="background-color:"
-		</div>
-	</div>
-	<h1>你好，世界！
+	<h1 class="text-center">你好，世界！
 		<small>当然这是副标题</small>
 	</h1>
-	<div class="center-block" style="width:50%;background-color:#ccc;">
-		<img src="./images/2D0r0r000000h08392FC5.jpg" class="img-responsive" alt="响应式图像">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2" style="background-color:#ffffff;box-shadow:inset 1px -1px 1px #ffffff,inset -1px 1px 1px #ffffff;">
+				<div class="center-block" style="width:100%;background-color:#ccc;">
+					<img src="./images/2D0r0r000000h08392FC5.jpg" class="img-responsive" alt="响应式图像">
+				</div>
+				<h2>以下是引导主体副本</h2>
+				<p class="lead">公元前3400年：形成两个王国。塔 麦胡：下埃及，红冠（红土地），保护人：瓦杰特，象征物：纸莎草/蜂蜜；塔 舒穆：上埃及，白冠，涅赫伯特，荷花/莎草。统一两个王国的首领称为那尔迈：双王冠</p>
+				<p>
+					<strong>眼部化妆品：</strong>用于阻止强烈阳光对眼睛的危害，混合着植物（蓖麻）油的矿物质。 文字可能受到两河流域的楔形文字的启发。 </p>
+				<p class="text-danger">小心！</p>
+				<p class="text-muted">这一行将减弱你的视力</p>
+				<p class="text-success">成功减弱了你的视力！</p>
+				<blockquote>这一行是引用
+					<br>Egypt emerged as one of the world's first nation states in the tenth millennium BC.[13] Considered a cradle of civilisation,
+					Ancient Egypt saw some of the earliest developments of writing, agriculture, urbanisation, organised religion and central
+					government. Iconic monuments such as the Giza Necropolis and its Great Sphinx, as well the ruins of Memphis, Thebes,
+					Karnak, and the Valley of the Kings, reflect this legacy and remain a significant focus of scientific and popular interest.
+					Egypt's long and rich cultural heritage is an integral part of its national identity, which has endured, and often assimilated,
+					various foreign influences, including Greek, Persian, Roman, Arab, Ottoman, and Nubian. Egypt was an early and important
+					centre of Christianity, but was largely Islamised in the seventh century and remains a predominantly Muslim country,
+					albeit with a significant Christian minority.
+				</blockquote>
+				<p>
+					<code>let</code>是js中变量的一种</p>
+				<p>以下是app.js有关设定的代码</p>
+				<pre class="pre-scrollable">
+			// 检查session函数
+			function checkSession(sess) {
+				if (sess.loginUser) { // 如果用户存在
+					// 页面停留时间未超过最大session生存时间
+					if (sess.cookie.maxAge > 0) {
+						return;
+					} else {
+						// 页面停留时间过长
+						return 'The page stay is too long, please log in again';
+					}
+				} else {
+					// 阻止通过URL直接登陆
+					return 'Please log in first.';
+				}
+			}
+				</pre>
+				<form role="form">
+					<!-- 这里必须要有role="form" -->
+					<div class="form-group">
+						<!-- 用于处理响应式 -->
+						<label for="pin">pin</label>
+						<input type="text" class="form-control" id="pin" placeholder="请输入PIN码">
+					</div>
+					<div class="form-group">
+						<label for="name">name</label>
+						<input type="text" class="form-control" id="name" placeholder="请输入姓名">
+					</div>
+					<div class="from-group">
+						<label for="code">验证码</label>
+						<input type="text" class="form-control" id="code" placeholder="请输入验证码">
+					</div>
+					<br>
+					<div class="alert alert-danger">存在输入错误，请检查</div>
+					<button type="submit" class="btn btn-default btn-block">
+						<span class="glyphicon glyphicon-log-in"></span> 登陆(全宽区块按钮)
+					</button>
+					<br>
+					<button type="submit" class="btn btn-primary btn-lg, center-block" style="font-size: 400%">
+						<!-- 一个组件有多个CSS属性的方式就在这了！ -->
+						<!-- 这个按钮要显得大必须要字体大 -->
+						<span class="glyphicon glyphicon-log-in"></span> 登陆(令人不敢相信的基础(?)大按钮)
+					</button>
+				</form>
+			</div>
+		</div>
 	</div>
+
 	<!-- 响应式图像 -->
-	<h2>以下是引导主体副本</h2>
-	<p class="lead">公元前3400年：形成两个王国。塔 麦胡：下埃及，红冠（红土地），保护人：瓦杰特，象征物：纸莎草/蜂蜜；塔 舒穆：上埃及，白冠，涅赫伯特，荷花/莎草。统一两个王国的首领称为那尔迈：双王冠</p>
-	<p>
-		<strong>眼部化妆品：</strong>用于阻止强烈阳光对眼睛的危害，混合着植物（蓖麻）油的矿物质。 文字可能受到两河流域的楔形文字的启发。 </p>
-	<p class="text-danger">小心！</p>
-	<p class="text-muted">这一行将减弱你的视力</p>
-	<p class="text-success">成功减弱了你的视力！</p>
-	<blockquote>这一行是引用
-		<br>Egypt emerged as one of the world's first nation states in the tenth millennium BC.[13] Considered a cradle of civilisation,
-		Ancient Egypt saw some of the earliest developments of writing, agriculture, urbanisation, organised religion and central
-		government. Iconic monuments such as the Giza Necropolis and its Great Sphinx, as well the ruins of Memphis, Thebes, Karnak,
-		and the Valley of the Kings, reflect this legacy and remain a significant focus of scientific and popular interest. Egypt's
-		long and rich cultural heritage is an integral part of its national identity, which has endured, and often assimilated,
-		various foreign influences, including Greek, Persian, Roman, Arab, Ottoman, and Nubian. Egypt was an early and important
-		centre of Christianity, but was largely Islamised in the seventh century and remains a predominantly Muslim country, albeit
-		with a significant Christian minority.
-	</blockquote>
-	<p>
-		<code>let</code>是js中变量的一种</p>
-	<p>以下是app.js有关设定的代码</p>
-	<pre class="pre-scrollable">
-// 检查session函数
-function checkSession(sess) {
-	if (sess.loginUser) { // 如果用户存在
-		// 页面停留时间未超过最大session生存时间
-		if (sess.cookie.maxAge > 0) {
-			return;
-		} else {
-			// 页面停留时间过长
-			return 'The page stay is too long, please log in again';
-		}
-	} else {
-		// 阻止通过URL直接登陆
-		return 'Please log in first.';
-	}
-}
-	</pre>
+
 
 	<p>以下是使得按钮组间距变宽的看不出效果的工具条组件</p>
 	<div class="btn-toolbar" role="toolbar">
@@ -139,11 +174,21 @@ function checkSession(sess) {
 	</form>
 	<p>以下是基于无序列表的分页</p>
 	<ul class="pagination">
-		<li><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
-		<li><a href="#">3</a></li>
-		<li><a href="#">4</a></li>
-		<li><a href="#">5</a></li>
+		<li>
+			<a href="#">1</a>
+		</li>
+		<li>
+			<a href="#">2</a>
+		</li>
+		<li>
+			<a href="#">3</a>
+		</li>
+		<li>
+			<a href="#">4</a>
+		</li>
+		<li>
+			<a href="#">5</a>
+		</li>
 	</ul>
 	<p class="text-right">刘永峰</p>
 	<address class="text-right">

@@ -5,6 +5,13 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "Integrated Terminal/Console",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}\\users.py",
+			"console": "integratedTerminal"
+		},
+		{
 			"type": "node",
 			"request": "launch",
 			"name": "启动程序",

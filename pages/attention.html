@@ -1,23 +1,29 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 启用移动显示支持，宽度自适应，初始缩放1倍，不允许用户缩放——>这就更像原生应用 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
   <title>CCC2018酒店预订须知</title>
-  <style type="text/css">
-    body {
-      margin: 0;
-      background-image: url('images/背景-1.jpg');
-      background-repeat: no-repeat;
-      background-position: 50% 0%;
-      background-size: 950px 300%;
-    }
-  </style>
+
+  <!-- Bootstrap -->
+  <link href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   <script type="text/javascript">
-    var c = 1000
+    var c = 10
     // var d = 1000
     var t
     var flag = 0
+
     function timedCount() {
       --c
       // --d
@@ -26,26 +32,18 @@
       cb.onclick = function () {
         if (cb.checked == true) {
           flag = 1;
-        }
-        else {
+        } else {
           flag = 0;
         }
       }
 
-      // document.getElementById('button1').innerHTML = "点击进入东湖宾馆酒店预订系统 " + parseInt(d / 100) + "s"
       document.getElementById('button').innerHTML = "点击进入协议酒店预订系统 " + parseInt(c / 100) + "s"
-      // if(d<=0){
-      //   // setTimeout("document.getElementById('button1').innerHTML=点击进入东湖宾馆酒店预订系统", 0);
-      //   // document.getElementById('button1').innerHTML = "点击进入东湖宾馆酒店预订系统"
-      //   // document.getElementById("button1").disabled = false; 
-      // }
       if (c <= 0) {
         c = 0;
-        document.getElementById('button').innerHTML="点击进入协议酒店预订系统";
+        document.getElementById('button').innerHTML = "点击进入协议酒店预订系统";
         if (flag == 1) {
           document.getElementById("button").disabled = false;
-        }
-        else {
+        } else {
           document.getElementById("button").disabled = true;
         }
         document.getElementById('button').innerHTML = "点击进入协议酒店预订系统"
@@ -55,41 +53,122 @@
   </script>
 </head>
 
-<body bgcolor="#F0F8FF">
-  <div id="div1" style="text-align: center;">
-    <img src="images/ccc2018.png" width="950px" height="300px">
-    <div style="margin-top:30px;">
-      <h1 style="margin:0;">
-        <font  style="font-family:KaiTi" color="#000000" size="6">CCC2018酒店预订须知</font>
-      </h1>
-      <div style="text-align: left; font-family:STXihei;font-weight:normal; display:inline-block;margin-top:40px;font-size:110%">
-        <p style="font-family:KaiTi;text-indent:2.1em;line-height:35px;word-wrap: break-word; border: 0px solid #00F; width:920px; height:300%; ">
-            <b>本系统提供<font color="#483D8B" >东湖宾馆</font>和<font color="#483D8B" >携程协议酒店</font>，两种预订系统。预定前请仔细阅读预定须知。</b><br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;1）<font color="#FF4500" >预订系统开放的时间为：</font>
-              <font color="#FF0000"><b>2018年5月15日——2018年6月10日。</b></font>其中，<font color="#4169E1"><b>2018年5月15日——2018年5月25日系统仅对已注册人员开放，</b></font>订房时请在系统备注栏填写：PIN 码、姓名和手机号，如”12345 张三 13900000000“，<font color="#FF0000">若未注册或未备注，所订房间可能会被取消。</font>
-              <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#DC143C"><b>2018年5月26日——2018年6月10日系统对所有参会人员开放，</b></font>
+<body>
+
+  <img src="./images/2D0r0r000000h08392FC5.jpg" class="img-responsive center-block" alt="中国控制会议">
+
+  <!-- 偏移网格 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2" style="background-color:#ffffff;box-shadow:inset 1px -1px 1px #ffffff,inset -1px 1px 1px #ffffff;">
+        <br/>
+        <!-- 标题 -->
+        <h1 class="text-center">CCC2018酒店预订须知</h1>
+        <br/>
+
+        <!-- 正文 -->
+        <div class="lead">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-info">本系统提供东湖宾馆和携程协议酒店，两种预订系统。预定前，请仔细阅读预定须知。</span>
+          </p>
+          <!-- 列表 -->
+          <a href="#" class="list-group-item active">
+            预订须知
+          </a>
+          <a href="#" class="list-group-item">预订系统开放的时间为：
+            <span class="text-danger">
+              <strong>2018年5月10日——2018年6月25日</strong>
+            </span>。其中，
+            <span class="text-info">
+              <strong>2018年5月10日——2018年5月25日</strong>系统仅对
+              <span class="text-danger">
+                <strong>已注册人员开放</strong>
+              </span>
+            </span>，订房时请在系统备注栏填写：
+            <strong>PIN 码、姓名和手机号</strong>，如“12345 张三 1390000000”，
+            <span class="text-danger">
+              <strong>若未注册或未备注，所订房间可能会被取消</strong>
+            </span>。
+            <br/>
+            <span class="text-info">
+              <strong>2018年5月26日——2018年6月25日</strong>
+            </span>系统对所有参会人员开放。</li>
+          </a>
+          <a href="#" class="list-group-item">请您仔细规划好行程安排，房间预订后，如果退订，
+            <span class="text-danger">
+              <strong>东湖宾馆将收取第一晚房费作为违约金；携程协议酒店将收取订房预订金作为违约金。感谢您的理解。</strong>
+            </span>
+          </a>
+          <a href="#" class="list-group-item">请订房前仔细考虑入住日期和天数——由于参会人员较多，
+            <span class="text-warning">
+              <strong>如果事先没有预订，不能保证后期续住</strong>。</span>
+          </a>
+          <a href="#" class="list-group-item">由于系统数据更新需要一定的时间，
+            <span class="text-danger">请您注册并
+              <strong>缴费成功</strong>以后，
+              <strong>第二天再进入酒店预定系统</strong>
+            </span>。
+          </a>
+          <ol>
+            <li>预订系统开放的时间为：
+              <span class="text-danger">
+                <strong>2018年5月10日——2018年6月25日</strong>
+              </span>。其中，
+              <span class="text-info">
+                <strong>2018年5月10日——2018年5月25日</strong>系统仅对
+                <span class="text-danger">
+                  <strong>已注册人员开放</strong>
+                </span>
+              </span>，订房时请在系统备注栏填写：
+              <strong>PIN 码、姓名和手机号</strong>，如“12345 张三 1390000000”，
+              <span class="text-danger">
+                <strong>若未注册或未备注，所订房间可能会被取消</strong>
+              </span>。
               <br/>
-              <!-- <span style="text-align: center;display:block;"><button onmouseover="this.style.backgroundColor='#20B2AA'" onmouseout="this.style.backgroundColor='#87CEFA'" id="button1" type="button" onclick="javascript:window.location.href = 'hotel_DongHu.html'" value="点击进入东湖宾馆酒店预订系统"
-                  disabled="true" style='font-size:40px;border:0px;border-radius: 10px;font-family:SimHei;font-weight:bold; width:280px; height:40px; font-size:15px;vertical-align:middle;text-align:center'>
-                  </button></span> -->
-                  &nbsp;&nbsp;&nbsp;&nbsp;2）请您订房前仔细考虑，<font color="#FF0000">房间一旦预订，不退不换。</font>
-           <br/>
-           &nbsp;&nbsp;&nbsp;&nbsp;3）请订房前仔细考虑入住日期和天数——由于参会人员较多，<font color="#FF0000">如果事先没有预订，不能保证后期续住。</font>
-        </p>
+              <span class="text-info">
+                <strong>2018年5月26日——2018年6月25日</strong>
+              </span>系统对所有参会人员开放。</li>
+            <li>请您仔细规划好行程安排，房间预订后，如果退订，
+              <span class="text-danger">
+                <strong>东湖宾馆将收取第一晚房费作为违约金；携程协议酒店将收取订房预订金作为违约金。感谢您的理解。</strong>
+              </span>
+            </li>
+            <li>请订房前仔细考虑入住日期和天数——由于参会人员较多，
+              <span class="text-warning">
+                <strong>如果事先没有预订，不能保证后期续住</strong>。</span>
+            </li>
+            <li>由于系统数据更新需要一定的时间，
+              <span class="text-danger">请您注册并
+                <strong>缴费成功</strong>以后，
+                <strong>第二天再进入酒店预定系统</strong>
+              </span>。</li>
+          </ol>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="checkbox center-block">
+                  <label>
+                    <input id="check" type="checkbox"> 我已仔细阅读并同意以上所有条款
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="button" type="button" class="btn btn-default btn-block" style="font-size: 100%" onclick="javascript:window.location.href = '/login_get'"
+            disabled="true">
+            <span class="glyphicon glyphicon-log-in"></span> 点击进入酒店预订系统
+          </button>
+          <!-- <button type="button" class="btn btn-primary btn-block" style="font-size: 100%">
+            <span class="glyphicon glyphicon-log-in"></span> 点击进入酒店预订系统
+          </button> -->
+        </div>
       </div>
-      <p>
-        <input type="checkbox" id="check" style="width:15px;height:15px;" />
-        <font style="font-family:KaiTi" size="5">我已仔细阅读并同意以上所有条款</font>
-      </p>
-      <div style="text-align: center;margin-top:10px">
-        <button id="button" type="button" onclick="javascript:window.location.href = '/login_get'" onmouseover="this.style.backgroundColor='#20B2AA'" onmouseout="this.style.backgroundColor='#87CEFA'"value="点击进入协议酒店预订系统"
-          disabled="true" style="background-color: #87CEFA;font-size:40px;border:0px;border-radius: 10px;font-family:SimHei;font-weight:bold; width:250px; height:40px; font-size:15px;vertical-align:middle;text-align:center">
-      </div>
-      <p>
-        <br />
-      </p>
-    </div>
-  </div>
+
+      <!-- 响应式图像 -->
+      <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+      <script src="./bootstrap-3.3.7-dist/js/jquery.min.js"></script>
+      <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+      <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

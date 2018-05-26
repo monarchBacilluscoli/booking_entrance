@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CCC2018酒店预订须知</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      background-image: url('images/背景-1.jpg');
+      background-repeat: no-repeat;
+      background-position: 50% 0%;
+      background-size: 950px 300%;
+    }
+  </style>
+  <script type="text/javascript">
+    var c = 1000
+    // var d = 1000
+    var t
+    var flag = 0
+    function timedCount() {
+      --c
+      // --d
+      setTimeout("timedCount()", 10)
+      var cb = document.getElementById("check");
+      cb.onclick = function () {
+        if (cb.checked == true) {
+          flag = 1;
+        }
+        else {
+          flag = 0;
+        }
+      }
+
+      // document.getElementById('button1').innerHTML = "点击进入东湖宾馆酒店预订系统 " + parseInt(d / 100) + "s"
+      document.getElementById('button').innerHTML = "点击进入协议酒店预订系统 " + parseInt(c / 100) + "s"
+      // if(d<=0){
+      //   // setTimeout("document.getElementById('button1').innerHTML=点击进入东湖宾馆酒店预订系统", 0);
+      //   // document.getElementById('button1').innerHTML = "点击进入东湖宾馆酒店预订系统"
+      //   // document.getElementById("button1").disabled = false; 
+      // }
+      if (c <= 0) {
+        c = 0;
+        document.getElementById('button').innerHTML="点击进入协议酒店预订系统";
+        if (flag == 1) {
+          document.getElementById("button").disabled = false;
+        }
+        else {
+          document.getElementById("button").disabled = true;
+        }
+        document.getElementById('button').innerHTML = "点击进入协议酒店预订系统"
+      }
+    }
+    setTimeout("timedCount()", 10)
+  </script>
+</head>
+
+<body bgcolor="#F0F8FF">
+  <div id="div1" style="text-align: center;">
+    <img src="images/ccc2018.png" width="950px" height="300px">
+    <div style="margin-top:30px;">
+      <h1 style="margin:0;">
+        <font  style="font-family:KaiTi" color="#000000" size="6">CCC2018酒店预订须知</font>
+      </h1>
+      <div style="text-align: left; font-family:STXihei;font-weight:normal; display:inline-block;margin-top:40px;font-size:110%">
+        <p style="font-family:KaiTi;text-indent:2.1em;line-height:35px;word-wrap: break-word; border: 0px solid #00F; width:920px; height:300%; ">
+            <b>本系统提供<font color="#483D8B" >东湖宾馆</font>和<font color="#483D8B" >携程协议酒店</font>，两种预订系统。预定前请仔细阅读预定须知。</b><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;1）<font color="#FF4500" >预订系统开放的时间为：</font>
+              <font color="#FF0000"><b>2018年5月15日——2018年6月10日。</b></font>其中，<font color="#4169E1"><b>2018年5月15日——2018年5月25日系统仅对已注册人员开放，</b></font>订房时请在系统备注栏填写：PIN 码、姓名和手机号，如”12345 张三 13900000000“，<font color="#FF0000">若未注册或未备注，所订房间可能会被取消。</font>
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#DC143C"><b>2018年5月26日——2018年6月10日系统对所有参会人员开放，</b></font>
+              <br/>
+              <!-- <span style="text-align: center;display:block;"><button onmouseover="this.style.backgroundColor='#20B2AA'" onmouseout="this.style.backgroundColor='#87CEFA'" id="button1" type="button" onclick="javascript:window.location.href = 'hotel_DongHu.html'" value="点击进入东湖宾馆酒店预订系统"
+                  disabled="true" style='font-size:40px;border:0px;border-radius: 10px;font-family:SimHei;font-weight:bold; width:280px; height:40px; font-size:15px;vertical-align:middle;text-align:center'>
+                  </button></span> -->
+                  &nbsp;&nbsp;&nbsp;&nbsp;2）请您订房前仔细考虑，<font color="#FF0000">房间一旦预订，不退不换。</font>
+           <br/>
+           &nbsp;&nbsp;&nbsp;&nbsp;3）请订房前仔细考虑入住日期和天数——由于参会人员较多，<font color="#FF0000">如果事先没有预订，不能保证后期续住。</font>
+        </p>
+      </div>
+      <p>
+        <input type="checkbox" id="check" style="width:15px;height:15px;" />
+        <font style="font-family:KaiTi" size="5">我已仔细阅读并同意以上所有条款</font>
+      </p>
+      <div style="text-align: center;margin-top:10px">
+        <button id="button" type="button" onclick="javascript:window.location.href = '/login_get'" onmouseover="this.style.backgroundColor='#20B2AA'" onmouseout="this.style.backgroundColor='#87CEFA'"value="点击进入协议酒店预订系统"
+          disabled="true" style="background-color: #87CEFA;font-size:40px;border:0px;border-radius: 10px;font-family:SimHei;font-weight:bold; width:250px; height:40px; font-size:15px;vertical-align:middle;text-align:center">
+      </div>
+      <p>
+        <br />
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

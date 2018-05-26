@@ -1,47 +1,83 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="format-detection" content="telephone=no" />
-    <title>东湖酒店预订</title>
-    <link rel="stylesheet" type="text/css" href="css/global.css" />
-    <!-- <link rel="stylesheet" href="css/smoothness/jquery.ui.css" type="text/css" /> -->
-    <link rel="stylesheet" type="text/css" href="css/note.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/count_style.css" /> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 启用移动显示支持，宽度自适应，初始缩放1倍，不允许用户缩放——>这就更像原生应用 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>预订系统选择</title>
 
-    
-    <style type="text/css">
-       
-      </style>
-        <script type="text/javascript">
-           
-          </script>
+    <!-- Bootstrap -->
+    <link href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-    <!--中间-->
-    <div class="webIndex">
-            <div class="stay-list-left">
-                <img height=500px width=100% src="images/2D0r0r000000h08392FC5.jpg" />
-                <h3 class="search-head">
-                        <font color="#000000" size="5">请根据您的需要选择预订系统：</font></h3>
-                        <br/><br/>
-                <div class="info_input">
-                            <button onmouseover="this.style.backgroundColor='#20B2AA'" onmouseout="this.style.backgroundColor='#87CEFA'" id="button1"
-                                type="button" onclick="window.open('/donghu_choices')" value="点击进入东湖宾馆酒店预订系统" style="background-color: #87CEFA;font-size:40px;border:0px;border-radius: 10px;font-family:SimHei;font-weight:bold; width:280px; height:40px; font-size:15px;vertical-align:middle;text-align:center">
-                                点击进入东湖宾馆酒店预订系统</button>
-                        <br/>
-                        <br/>
-                <button id="button" type="button" onclick="window.open('XieCheng.html')" onmouseover="this.style.backgroundColor='#20B2AA'"
-                    onmouseout="this.style.backgroundColor='#87CEFA'" value="点击进入携程协议酒店预订系统" style="background-color: #87CEFA;font-size:40px;border:0px;border-radius: 10px;font-family:SimHei;font-weight:bold; width:280px; height:40px; font-size:15px;vertical-align:middle;text-align:center">
-                    点击进入携程协议酒店预订系统</button>
-                  <br/>
-                  <br/>
+
+    <img src="./images/2D0r0r000000h08392FC5.jpg" class="img-responsive center-block" alt="中国控制会议">
+    <br/>
+    <br/>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-3 col-md-2 col-md-offset-2" style="background-color: #ffffff;
+                box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-default">按钮 1</button>
+                    <button type="button" class="btn btn-default">按钮 2</button>
                 </div>
             </div>
-</div>
+            <div class="col-xs-8 col-sm-9 col-md-6" style="background-color: #dedef8;box-shadow: 
+            inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+                </p>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="background-color:#ffffff;box-shadow:inset 1px -1px 1px #ffffff,inset -1px 1px 1px #ffffff;">
+                <br/>
+                <div class="lead">
+                    <p class="lead text-center">请根据您的需要选择预订系统：</span>
+                    </p>
+                    <br/>
+                    <button id="button1" type="button" onclick="window.open('/donghu_choice')" class="btn btn-default btn-block" style="font-size: 120%">
+                        <span class="glyphicon glyphicon-briefcase"></span>&nbsp;&nbsp;东湖宾馆酒店预订系统
+                    </button>
+                    <br/>
+                    <br/>
+                    <button id="button2" type="button" onclick="window.open('/xiecheng_choice')" class="btn btn-primary btn-block" style="font-size: 120%">
+                        <!-- 一个组件有多个CSS属性的方式就在这了！ -->
+                        <!-- 这个按钮要显得大必须要字体大 -->
+                        <span class="glyphicon glyphicon-briefcase"></span>&nbsp;&nbsp;携程协议酒店预订系统
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+
+    <!-- 响应式图像 -->
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="./bootstrap-3.3.7-dist/js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
