@@ -1,0 +1,352 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leicester Research Archive: Particle Swarm Optimization in Stationary and Dynamic Environments</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="Generator" content="DSpace 4.2" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+	    <link rel="stylesheet" href="/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css" type="text/css" />
+	    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css" type="text/css" />
+	    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
+	    <link rel="stylesheet" href="/static/css/bootstrap/dspace-theme.css" type="text/css" />
+
+        <link rel="search" type="application/opensearchdescription+xml" href="/open-search/description.xml" title="DSpace"/>
+
+
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<meta name="DC.contributor" content="Yang, Shengxiang" />
+<meta name="DC.contributor" content="Hoffmann, Michael" />
+<meta name="DC.creator" content="Li, Changhe" />
+<meta name="DCTERMS.dateAccepted" content="2012-03-27T11:54:34Z" scheme="DCTERMS.W3CDTF" />
+<meta name="DCTERMS.available" content="2013-04-01T01:45:06Z" scheme="DCTERMS.W3CDTF" />
+<meta name="DCTERMS.issued" content="2011-04-01" scheme="DCTERMS.W3CDTF" />
+<meta name="DC.identifier" content="http://hdl.handle.net/2381/10284" scheme="DCTERMS.URI" />
+<meta name="DCTERMS.abstract" content="Inspired by social behavior of bird flocking or fish schooling, Eberhartand Kennedy first developed the particle swarm optimization (PSO) algorithm in 1995. PSO, as a branch of evolutionary computation, has been successfully applied in many research and application areas in the past several years, e.g., global optimization, artificial neural network training, and fuzzy system control, etc… Especially, for global optimization, PSO has shown its superior advantages and effectiveness.&#xD;&#xA;Although PSO is an effective tool for global optimization problems, it shows weakness while solving complex problems (e.g., shifted, rotated, and compositional problems) or dynamic problems (e.g., the moving peak problem and the DF1 function). This is especially true for the original PSO algorithm.&#xD;&#xA;In order to improve the performance of PSO to solve complex problems, we present a novel algorithm, called self-learning PSO (SLPSO). In SLPSO, each particle has four different learning strategies to deal with different situations in the search space. The cooperation of the four learning strategies is implemented by an adaptive framework at the individual level, which can enable each particle to choose the optimal learning strategy according to the properties of its own local fitness landscape. This flexible learning mechanism is able to automatically balance the behavior of exploration and exploitation for each particle in the entire search space during the whole running process.&#xD;&#xA;Another major contribution of this work is to adapt PSO to dynamic environments, we propose an idea that applies hierarchical clustering techniques to generate multiple populations. This idea is the first attempt to solve some open issues when using multiple population methods in dynamic environments, such as, how to define the size of search region of a sub-population, how many individuals are needed in each sub-population, and how many sub-populations are needed, etc... Experimental study has shown that this idea is effective to locate and track multiple peaks in dynamic environments." xml:lang="en" />
+<meta name="DC.language" content="en" xml:lang="en" scheme="DCTERMS.RFC1766" />
+<meta name="DC.relation" content="Copyright © the author, 2011" xml:lang="en" />
+<meta name="DC.title" content="Particle Swarm Optimization in Stationary and Dynamic Environments" xml:lang="en" />
+<meta name="DC.type" content="Thesis" xml:lang="en" />
+<meta name="DC.type" content="Doctoral" xml:lang="en" />
+<meta name="DC.type" content="PhD" xml:lang="en" />
+<meta name="DC.date" content="2011-04-01" scheme="DCTERMS.W3CDTF" />
+<meta name="DC.publisher" content="University of Leicester" xml:lang="en_GB" />
+
+<meta name="citation_abstract_html_url" content="https://lra.le.ac.uk/handle/2381/10284" />
+<meta name="citation_pdf_url" content="https://lra.le.ac.uk/bitstream/2381/10284/1/2011licphd.pdf" />
+<meta name="citation_keywords" content="Thesis" />
+<meta name="citation_title" content="Particle Swarm Optimization in Stationary and Dynamic Environments" />
+<meta name="citation_dissertation_name" content="Particle Swarm Optimization in Stationary and Dynamic Environments" />
+<meta name="citation_date" content="2011-04-01" />
+<meta name="citation_authors" content="Li, Changhe" />
+<meta name="citation_language" content="en" />
+
+
+        
+	<script type='text/javascript' src="/static/js/jquery/jquery-1.10.2.min.js"></script>
+	<script type='text/javascript' src='/static/js/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+	<script type='text/javascript' src='/static/js/bootstrap/bootstrap.min.js'></script>
+	<script type='text/javascript' src='/static/js/holder.js'></script>
+	<script type="text/javascript" src="/utils.js"></script>
+    <script type="text/javascript" src="/static/js/choice-support.js"> </script>
+
+    
+    
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-994988-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    
+    
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/static/js/html5shiv.js"></script>
+  <script src="/static/js/respond.min.js"></script>
+<![endif]-->
+    </head>
+
+    
+    
+    <body class="undernavigation">
+<a class="sr-only" href="#content">Skip navigation</a>
+<header class="navbar navbar-inverse navbar-fixed-top">    
+    
+            <div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="http://le.ac.uk"><img height="50px" src="/image/unilogo.gif" /></a>
+       </div>
+       <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+         <ul class="nav navbar-nav">
+           <li class=""><a href="/"><span class="glyphicon glyphicon-home"></span> LRA&nbsp;Home</a></li>
+                
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
+             <ul class="dropdown-menu">
+               <li><a href="/community-list">Communities<br/>&amp;&nbsp;Collections</a></li>
+				<li class="divider"></li>
+				<li class="dropdown-header">Browse Items by:</li>
+				
+				
+				
+				      			<li><a href="/browse?type=dateissued">First published</a></li>
+					
+				      			<li><a href="/browse?type=author">Author</a></li>
+					
+				      			<li><a href="/browse?type=title">Title</a></li>
+					
+				    
+				
+
+            </ul>
+          </li>
+          <li class=""><script type="text/javascript">
+<!-- Javascript starts here
+document.write('<a href="#" onClick="var popupwin = window.open(\'/help/index.html\',\'dspacepopup\',\'height=600,width=550,resizable,scrollbars\');popupwin.focus();return false;">Help<\/a>');
+// -->
+</script><noscript><a href="/help/index.html" target="dspacepopup">Help</a></noscript></li>
+       </ul>
+       <div class="nav navbar-nav navbar-right">
+		<ul class="nav navbar-nav navbar-right">
+         <li class="dropdown">
+         
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Sign on to: <b class="caret"></b></a>
+	             
+             <ul class="dropdown-menu">
+               <li><a href="/mydspace">My LRA</a></li>
+               <li><a href="/subscribe">Receive email<br/>updates</a></li>
+               <li><a href="/profile">Edit Profile</a></li>
+
+		
+             </ul>
+           </li>
+          </ul>
+          
+	
+	<form method="get" action="/simple-search" class="navbar-form navbar-right" scope="search">
+	    <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search&nbsp;LRA" name="query" id="tequery" size="20"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+
+	</form></div>
+    </nav>
+
+            </div>
+
+</header>
+
+<main id="content" role="main">
+
+                
+
+<div class="container">
+                
+
+
+
+  
+
+<ol class="breadcrumb btn-success">
+
+  <li><a href="http://www.le.ac.uk/library">Library</a></li>
+
+  <li><a href="/">Leicester Research Archive</a></li>
+
+  <li><a href="/handle/2381/9549">College of Science and Engineering</a></li>
+
+  <li><a href="/handle/2381/316">Computer Science, Department of</a></li>
+
+  <li><a href="/handle/2381/385">Theses, Dept. of Computer Science</a></li>
+
+</ol>
+
+</div>                
+
+
+
+        
+<div class="container">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+
+                
+                <div class="well">Please use this identifier to cite or link to this item:
+                <code>http://hdl.handle.net/2381/10284</code></div>
+
+
+
+    
+    <table class="table itemDisplayTable">
+<tr><td class="metadataFieldLabel">Title:&nbsp;</td><td class="metadataFieldValue">Particle&#x20;Swarm&#x20;Optimization&#x20;in&#x20;Stationary&#x20;and&#x20;Dynamic&#x20;Environments</td></tr>
+<tr><td class="metadataFieldLabel">Authors:&nbsp;</td><td class="metadataFieldValue"><a class="author"href="/browse?type=author&amp;value=Li%2C+Changhe">Li,&#x20;Changhe</a></td></tr>
+<tr><td class="metadataFieldLabel">Supervisors:&nbsp;</td><td class="metadataFieldValue">Yang,&#x20;Shengxiang<br />Hoffmann,&#x20;Michael</td></tr>
+<tr><td class="metadataFieldLabel">Award date:&nbsp;</td><td class="metadataFieldValue">1-Apr-2011</td></tr>
+<tr><td class="metadataFieldLabel">Presented at:&nbsp;</td><td class="metadataFieldValue">University&#x20;of&#x20;Leicester</td></tr>
+<tr><td class="metadataFieldLabel">Abstract:&nbsp;</td><td class="metadataFieldValue">Inspired&#x20;by&#x20;social&#x20;behavior&#x20;of&#x20;bird&#x20;flocking&#x20;or&#x20;fish&#x20;schooling,&#x20;Eberhartand&#x20;Kennedy&#x20;first&#x20;developed&#x20;the&#x20;particle&#x20;swarm&#x20;optimization&#x20;(PSO)&#x20;algorithm&#x20;in&#x20;1995.&#x20;PSO,&#x20;as&#x20;a&#x20;branch&#x20;of&#x20;evolutionary&#x20;computation,&#x20;has&#x20;been&#x20;successfully&#x20;applied&#x20;in&#x20;many&#x20;research&#x20;and&#x20;application&#x20;areas&#x20;in&#x20;the&#x20;past&#x20;several&#x20;years,&#x20;e.g.,&#x20;global&#x20;optimization,&#x20;artificial&#x20;neural&#x20;network&#x20;training,&#x20;and&#x20;fuzzy&#x20;system&#x20;control,&#x20;etc…&#x20;Especially,&#x20;for&#x20;global&#x20;optimization,&#x20;PSO&#x20;has&#x20;shown&#x20;its&#x20;superior&#x20;advantages&#x20;and&#x20;effectiveness.&#x0D;&#x0A;Although&#x20;PSO&#x20;is&#x20;an&#x20;effective&#x20;tool&#x20;for&#x20;global&#x20;optimization&#x20;problems,&#x20;it&#x20;shows&#x20;weakness&#x20;while&#x20;solving&#x20;complex&#x20;problems&#x20;(e.g.,&#x20;shifted,&#x20;rotated,&#x20;and&#x20;compositional&#x20;problems)&#x20;or&#x20;dynamic&#x20;problems&#x20;(e.g.,&#x20;the&#x20;moving&#x20;peak&#x20;problem&#x20;and&#x20;the&#x20;DF1&#x20;function).&#x20;This&#x20;is&#x20;especially&#x20;true&#x20;for&#x20;the&#x20;original&#x20;PSO&#x20;algorithm.&#x0D;&#x0A;In&#x20;order&#x20;to&#x20;improve&#x20;the&#x20;performance&#x20;of&#x20;PSO&#x20;to&#x20;solve&#x20;complex&#x20;problems,&#x20;we&#x20;present&#x20;a&#x20;novel&#x20;algorithm,&#x20;called&#x20;self-learning&#x20;PSO&#x20;(SLPSO).&#x20;In&#x20;SLPSO,&#x20;each&#x20;particle&#x20;has&#x20;four&#x20;different&#x20;learning&#x20;strategies&#x20;to&#x20;deal&#x20;with&#x20;different&#x20;situations&#x20;in&#x20;the&#x20;search&#x20;space.&#x20;The&#x20;cooperation&#x20;of&#x20;the&#x20;four&#x20;learning&#x20;strategies&#x20;is&#x20;implemented&#x20;by&#x20;an&#x20;adaptive&#x20;framework&#x20;at&#x20;the&#x20;individual&#x20;level,&#x20;which&#x20;can&#x20;enable&#x20;each&#x20;particle&#x20;to&#x20;choose&#x20;the&#x20;optimal&#x20;learning&#x20;strategy&#x20;according&#x20;to&#x20;the&#x20;properties&#x20;of&#x20;its&#x20;own&#x20;local&#x20;fitness&#x20;landscape.&#x20;This&#x20;flexible&#x20;learning&#x20;mechanism&#x20;is&#x20;able&#x20;to&#x20;automatically&#x20;balance&#x20;the&#x20;behavior&#x20;of&#x20;exploration&#x20;and&#x20;exploitation&#x20;for&#x20;each&#x20;particle&#x20;in&#x20;the&#x20;entire&#x20;search&#x20;space&#x20;during&#x20;the&#x20;whole&#x20;running&#x20;process.&#x0D;&#x0A;Another&#x20;major&#x20;contribution&#x20;of&#x20;this&#x20;work&#x20;is&#x20;to&#x20;adapt&#x20;PSO&#x20;to&#x20;dynamic&#x20;environments,&#x20;we&#x20;propose&#x20;an&#x20;idea&#x20;that&#x20;applies&#x20;hierarchical&#x20;clustering&#x20;techniques&#x20;to&#x20;generate&#x20;multiple&#x20;populations.&#x20;This&#x20;idea&#x20;is&#x20;the&#x20;first&#x20;attempt&#x20;to&#x20;solve&#x20;some&#x20;open&#x20;issues&#x20;when&#x20;using&#x20;multiple&#x20;population&#x20;methods&#x20;in&#x20;dynamic&#x20;environments,&#x20;such&#x20;as,&#x20;how&#x20;to&#x20;define&#x20;the&#x20;size&#x20;of&#x20;search&#x20;region&#x20;of&#x20;a&#x20;sub-population,&#x20;how&#x20;many&#x20;individuals&#x20;are&#x20;needed&#x20;in&#x20;each&#x20;sub-population,&#x20;and&#x20;how&#x20;many&#x20;sub-populations&#x20;are&#x20;needed,&#x20;etc...&#x20;Experimental&#x20;study&#x20;has&#x20;shown&#x20;that&#x20;this&#x20;idea&#x20;is&#x20;effective&#x20;to&#x20;locate&#x20;and&#x20;track&#x20;multiple&#x20;peaks&#x20;in&#x20;dynamic&#x20;environments.</td></tr>
+<tr><td class="metadataFieldLabel">Links:&nbsp;</td><td class="metadataFieldValue"><a href="http://hdl.handle.net/2381/10284">http:&#x2F;&#x2F;hdl.handle.net&#x2F;2381&#x2F;10284</a></td></tr>
+<tr><td class="metadataFieldLabel">Type:&nbsp;</td><td class="metadataFieldValue">Thesis</td></tr>
+<tr><td class="metadataFieldLabel">Level:&nbsp;</td><td class="metadataFieldValue">Doctoral</td></tr>
+<tr><td class="metadataFieldLabel">Qualification:&nbsp;</td><td class="metadataFieldValue">PhD</td></tr>
+<tr><td class="metadataFieldLabel">Rights:&nbsp;</td><td class="metadataFieldValue">Copyright&#x20;©&#x20;the&#x20;author,&#x20;2011</td></tr>
+<tr><td class="metadataFieldLabel">Appears in Collections:</td><td class="metadataFieldValue"><a href="/handle/2381/385">Theses, Dept. of Computer Science</a><br/><a href="/handle/2381/8806">Leicester Theses</a><br/></td></tr>
+</table><br/>
+<div class="panel panel-info"><div class="panel-heading">Files in This Item:</div>
+<table class="table panel-body"><tr><th id="t1" class="standard">File</th>
+<th id="t2" class="standard">Description</th>
+<th id="t3" class="standard">Size</th><th id="t4" class="standard">Format</th><th>&nbsp;</th></tr>
+<tr><td headers="t1" class="standard"><a target="_blank" onClick="_gaq.push(['_trackEvent', 'PDF', 'Download', '2381/10284']);" href="/bitstream/2381/10284/1/2011licphd.pdf">2011licphd.pdf</a></td><td headers="t2" class="standard"></td><td headers="t3" class="standard">2.21 MB</td><td headers="t4" class="standard">Adobe PDF</td><td class="standard" align="center"><a class="btn btn-primary" target="_blank" onClick="_gaq.push(['_trackEvent', 'PDF', 'Download', '2381/10284']);" href="/bitstream/2381/10284/1/2011licphd.pdf">View/Open</a></td></tr></table>
+</div>
+
+<div class="container row">
+
+
+    <a class="btn btn-default" href="/handle/2381/10284?mode=full">
+        Show full item record
+    </a>
+
+    <a class="statisticsLink  btn btn-primary" href="/handle/2381/10284/statistics"><span class="glyphicon glyphicon-stats"></span></a>
+
+    
+
+</div>
+<br/>
+    
+
+<br/>
+    
+
+    <p class="submitFormHelp alert alert-info">Items in LRA are protected by copyright, with all rights reserved, unless otherwise indicated.</p>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+</div>
+</main>
+            
+             <footer class="navbar navbar-inverse navbar-bottom">
+             <!-- This is the default 
+             <div id="designedby" class="container text-muted">
+             Theme by <a href="http://www.cineca.it"><img
+                                    src="/image/logo-cineca-small.png"
+                                    alt="Logo CINECA" /></a>
+			<div id="footer_feedback" class="pull-right">                                    
+                                <p class="text-muted"><a target="_blank" href="http://www.dspace.org/">DSpace Software</a> Copyright&nbsp;&copy;&nbsp;2002-2013&nbsp; <a target="_blank" href="http://www.duraspace.org/">Duraspace</a>&nbsp;-
+                                <a target="_blank" href="/feedback">Feedback</a>
+                                <a href="/htmlmap"></a></p>
+                                </div>
+			</div>
+             -->
+             <!-- Taken from https://srs.le.ac.uk -->
+             <div id="uolfooter" class="container">
+                 <ul> 
+		     <li><a href="http://www2.le.ac.uk/" alt="University Home" title="University Home" target="_blank">University Home</a></li>
+		     <li><a href="http://www2.le.ac.uk/indexes" alt="University A-Z" title="University A-Z" target="_blank">University A-Z</a></li>
+		     <li><a href="http://www.le.ac.uk/contact" alt="Contact the University" title="Contact the University" target="_blank">Contact the University</a></li>
+                 </ul>
+             </div>
+    </footer>
+    </body>
+</html>
+
