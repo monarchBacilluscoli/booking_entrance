@@ -1,3 +1,0 @@
-H:\normalTasks\hotel_book\booking_entrance\booking_entrance\obj\Debug\booking_entrance.njsprojResolveAssemblyReference.cache
-H:\normalTasks\hotel_book\booking_entrance\booking_entrance\obj\Debug\booking_entrance.njsproj.CoreCompileInputs.cache
-H:\normalTasks\hotel_book\booking_entrance\booking_entrance\bin\Microsoft.NodejsTools.WebRole.dll

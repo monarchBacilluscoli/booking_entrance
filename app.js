@@ -47,7 +47,7 @@ var connection = mysql.createConnection({ // 数据库连接参数
     port: '3306',
     database: 'ccc2018',
 });
-connection.connect();
+connection.connect(); //! cancel the connect, since others' pc don't have this database
 console.log('database connected.' + '\n');
 
 // 获取IP函数
@@ -306,7 +306,7 @@ app.get('/donghu_official', function (req, res) {
     } else {
         res.redirect('http://www.el-h.com');
     }
-})
+});
 
 // 进入东湖自有预订系统
 app.get('/donghu_get', function (req, res) {
@@ -319,7 +319,7 @@ app.get('/donghu_get', function (req, res) {
         return;
     } else {
         // 获取数据：先获取房间信息——获取六天的所有房间信息
-        connection.query('SELECT * FROM room WHERE day between 23 and 28', function (err_r, result_r) {
+        connection.query('SELECT * FROM room WHERE day BETWEEN 23 AND 28', function (err_r, result_r) {
             if (err_r) {
                 console.err(err_r);
                 return;
