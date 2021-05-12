@@ -16,7 +16,7 @@
     "jade": "^1.11.0",
     "mysql": "^2.15.0",
     "node": "^10.0.0",
-    "nodemailer": "^4.6.4",
+    "nodemailer": "^6.4.16",
     "nodemailer-smtp-transport": "^2.7.4",
     "schedule": "^0.1.0",
     "session-file-store": "^1.2.0"
